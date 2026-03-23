@@ -4,7 +4,7 @@
 
 Projet réalisé par :
 
-* Imad  SERADIJ
+* Imad  SERIDJ
 * Aurélien TOULOUSE
 * Hachim  YOUNOUSSA
 * Imen BEN GADHA 
