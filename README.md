@@ -1,75 +1,114 @@
-# 📊 Projet Data – SQL & Python
+# 📊 SAE – Création d’une Base de Données (SQL & Python)
 
 ## 👥 Équipe
 
-Ce projet est réalisé en groupe par :
+Projet réalisé par :
 
-* Imad
+* Imad 
 * Aurélien
 * Hachim
 * Imen
-*  Nomane
+* Nomane
 
 ---
 
-## 📌 Description du projet
+## 📌 Contexte du projet
 
-Ce projet a pour objectif de manipuler, analyser et exploiter des données en utilisant **SQL** et **Python**.
+Ce projet s’inscrit dans le cadre de la SAE (Situation d’Apprentissage et d’Évaluation) du semestre 2 à l’IUT d’Aix-Marseille Université.
 
-Nous travaillons sur :
+Il donne lieu à une double évaluation :
 
-* La gestion et structuration de bases de données (SQL)
-* L’extraction et la transformation des données
-* L’analyse des données avec Python
-* La visualisation des résultats (si applicable)
+* 💻 Informatique (base de données)
+* 📐 Mathématiques (analyse et visualisation)
+
+---
+
+## 🎯 Objectifs
+
+* Concevoir une base de données complète et cohérente
+* Implémenter la base en SQL (intension + extension)
+* Générer et manipuler des données
+* Analyser et visualiser les données avec Python (Pandas)
+* Travailler en équipe avec des outils de gestion de projet et de versioning
 
 ---
 
 ## 🛠️ Technologies utilisées
 
-* **SQL** (MySQL / PostgreSQL / SQLite selon le projet)
+* **SQL** (création et gestion de la base de données)
 * **Python**
 
   * pandas
-  * numpy
   * matplotlib 
+* **Jupyter Notebook** (rapport HTML)
+* **GitHub** (gestion de version et collaboration)
 
 ---
 
-## 📂 Structure du projet
+## 📂 Livrables du projet
 
-* `/sql` → scripts SQL (création, requêtes, etc.)
-* `/python` → scripts d’analyse et traitement
-* `/data` → jeux de données
-* `/docs` → documentation du projet
+### Partie Informatique
 
----
-
-## 🚀 Objectifs
-
-* Apprendre à travailler en équipe sur un projet data
-* Maîtriser les requêtes SQL
-* Automatiser le traitement des données avec Python
-* Produire des analyses pertinentes
+* Script SQL de création de la **structure (intension)**
+* Script SQL de création des **données (extension)**
+* Script de génération de données (si applicable)
+* Modèle conceptuel (MCD – Looping)
+* Schéma relationnel
+* Historique des sources et outils utilisés
 
 ---
 
-## 🔄 Organisation du travail
+### Partie Mathématique
 
-* Utilisation de GitHub pour le versioning
-* Travail par branches
-* Validation via Pull Requests
-
----
-
-## 📈 Résultats attendus
-
-* Base de données fonctionnelle
-* Scripts Python opérationnels
-* Analyses claires et exploitables
+* Rapport HTML généré depuis Jupyter Notebook
+* Visualisation des données avec Python
+* Analyse et interprétation des résultats
 
 ---
 
-## 📬 Contact
+## 📊 Travail sur les données
 
-Pour toute question concernant le projet, contacter un membre de l’équipe.
+Les données sont :
+
+* structurées dans une base relationnelle
+* potentiellement volumineuses (jusqu’à plusieurs millions de lignes)
+* exploitées pour produire des statistiques pertinentes
+
+Les visualisations sont :
+
+* choisies de manière justifiée
+* commentées et interprétées
+
+---
+
+## 🔄 Organisation du projet
+
+* Travail collaboratif via **GitHub**
+* Utilisation de branches et Pull Requests
+
+
+---
+
+## 🎤 Présentation orale
+
+* Durée : 20 minutes maximum
+* Présentation du projet et démonstration
+* Participation de chaque membre
+* Intervention en anglais (minimum 1 minute par personne)
+
+---
+
+## 📬 Encadrement pédagogique
+
+Enseignants :
+
+* Informatique : Mickaël Martin-Nevot, Sébastien Nedjar, Sylvain Hitier, Laurence Agostinelli
+* Mathématiques : Morgan Morancey
+
+---
+
+## 🚀 Objectif final
+
+Produire une base de données robuste et exploitable, accompagnée d’analyses pertinentes et d’une présentation claire, en respectant les contraintes académiques et professionnelles.
+
+---
