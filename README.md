@@ -4,11 +4,11 @@
 
 Projet réalisé par :
 
-* Imad 
-* Aurélien
-* Hachim
-* Imen
-* Nomane
+* Imad  SERADIJ
+* Aurélien TOULOUSE
+* Hachim  YOUNOUSSA
+* Imen BEN GADHA 
+* Noman-golfe MZIOI
 
 ---
 
