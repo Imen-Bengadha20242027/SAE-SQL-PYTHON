@@ -1,0 +1,2016 @@
+-- V4.0.0
+
+PROMPT "Création de la base de données Tenrac";
+
+-- **************************************************************************** Définition des données
+
+PROMPT "Définition des données";
+
+DROP TABLE IF EXISTS Ordre_Tenrac CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Club_Tenrac CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Plat CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Aliment CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Allergie CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Sauce CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Machine CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Certificat CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Historique CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Registre CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Cuisinier CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Organisme CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Ingredient CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Fabriquant CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Raclette CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Legume CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Entretien CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Croyance CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Opposition_De_Conviction_Personnelle CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Croisade CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Tenrac CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Grade CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Rang CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Titre CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Dignite CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Carte_Membre CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Groupe_Tenrac CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Repas CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Restaurant CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Est_Compose_De CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Est_Constitue CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Provoque CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Est_Accompagne_De CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Commande CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Federe CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Valide CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS A CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Est_Consigne_Dans CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Sert Cascade CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Fait Cascade CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Est_Un_Assemblage CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Est_Fabrique CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Amene_A CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Engendre CASCADE CONSTRAINTS PURGE;
+DROP TABLE IF EXISTS Possede CASCADE CONSTRAINTS PURGE;
+
+
+
+CREATE TABLE Ordre_Tenrac(
+   idOT NUMBER(10),
+   nom VARCHAR2(50),
+   adresse VARCHAR2(50),
+   ville VARCHAR2(50),
+   type VARCHAR2(50),
+   codePostale NUMBER(10),
+   CONSTRAINT pk_Ordre_Tenrac PRIMARY KEY(idOT)
+);
+
+CREATE TABLE Club_Tenrac(
+   idCT NUMBER(10),
+   nom VARCHAR2(50),
+   adresse VARCHAR2(50),
+   type VARCHAR2(50),
+   ville VARCHAR2(50),
+   territoire VARCHAR2(50),
+   CONSTRAINT pk_Club_Tenrac PRIMARY KEY(idCT)
+);
+
+CREATE TABLE Plat(
+   idP NUMBER(10),
+   nom VARCHAR2(50),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   CONSTRAINT pk_Plat PRIMARY KEY(idP)
+);
+
+CREATE TABLE Aliment(
+   idAli NUMBER(10),
+   type VARCHAR2(50),
+   nom VARCHAR2(50),
+   taille VARCHAR2(50),
+   CONSTRAINT pk_Aliment PRIMARY KEY(idAli)
+);
+
+CREATE TABLE Allergie(
+   idAll NUMBER(10),
+   nom VARCHAR2(50),
+   effet VARCHAR2(50),
+   CONSTRAINT pk_Allergie PRIMARY KEY(idAll)
+);
+
+CREATE TABLE Sauce(
+   idS NUMBER(10),
+   type VARCHAR2(50),
+   nom VARCHAR2(50),
+   CONSTRAINT pk_Sauce PRIMARY KEY(idS)
+);
+
+CREATE TABLE Machine(
+   idM NUMBER(10),
+   nom VARCHAR2(50),
+   modele VARCHAR2(50),
+   prix VARCHAR2(50),
+   CONSTRAINT pk_Machine PRIMARY KEY(idM)
+);
+
+CREATE TABLE Certificat(
+   idM NUMBER(10),
+   nom VARCHAR2(50),
+   type VARCHAR2(50),
+   dateDep DATE,
+   dateFin VARCHAR2(50),
+   CONSTRAINT pk_Certificat PRIMARY KEY(idM),
+   CONSTRAINT fk_Certificat_Machine FOREIGN KEY(idM) REFERENCES Machine(idM)
+);
+
+CREATE TABLE Historique(
+   idH NUMBER(10),
+   dateEntretient DATE,
+   nomClub VARCHAR2(50),
+   CONSTRAINT pk_Historique PRIMARY KEY(idH)
+);
+
+CREATE TABLE Registre(
+   idReg NUMBER(10),
+   status VARCHAR2(50),
+   periodicite DATE,
+   idH NUMBER(10) NOT NULL,
+   CONSTRAINT pk_Registre PRIMARY KEY(idReg),
+   CONSTRAINT fk_Registre_Historique FOREIGN KEY(idH) REFERENCES Historique(idH)
+);
+
+CREATE TABLE Cuisinier(
+   idCu NUMBER(10),
+   nom VARCHAR2(50),
+   prenom VARCHAR2(50),
+   age VARCHAR2(50),
+   adresse VARCHAR2(50),
+   CONSTRAINT pk_Cuisinier PRIMARY KEY(idCu)
+);
+
+CREATE TABLE Organisme(
+   idOA NUMBER(10),
+   nomEntreprise VARCHAR2(50),
+   type VARCHAR2(50),
+   adresse VARCHAR2(50),
+   ville VARCHAR2(50),
+   codePostale NUMBER(10),
+   siret NUMBER(15,2),
+   CONSTRAINT pk_Organisme PRIMARY KEY(idOA)
+);
+
+CREATE TABLE Ingredient(
+   idAli NUMBER(10),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   nom VARCHAR2(50),
+   CONSTRAINT pk_Ingredient PRIMARY KEY(idAli),
+   CONSTRAINT fk_Ingredient_Aliment FOREIGN KEY(idAli) REFERENCES Aliment(idAli)
+);
+
+CREATE TABLE Fabriquant(
+   idF NUMBER(10),
+   nom VARCHAR2(50),
+   prenom VARCHAR2(50),
+   adresse VARCHAR2(50),
+   codePostale NUMBER(10),
+   ville VARCHAR2(50),
+   CONSTRAINT pk_Fabriquant PRIMARY KEY(idF)
+);
+
+CREATE TABLE Raclette(
+   idRa NUMBER(10),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   CONSTRAINT pk_Raclette PRIMARY KEY(idRa)
+);
+
+CREATE TABLE Legume(
+   idAli NUMBER(10),
+   type VARCHAR2(50),
+   nom VARCHAR2(50),
+   taille VARCHAR2(50),
+   CONSTRAINT pk_Legume PRIMARY KEY(idAli),
+   CONSTRAINT fk_Legume_Aliment FOREIGN KEY(idAli) REFERENCES Aliment(idAli)
+);
+
+CREATE TABLE Entretien(
+   idEn NUMBER(10,2),
+   dateEntretien DATE,
+   CONSTRAINT pk_Entretien PRIMARY KEY(idEn)
+);
+
+CREATE TABLE Croyance(
+   idCr NUMBER(10),
+   dieuTenrac VARCHAR2(50),
+   dieuDesTenders VARCHAR2(50),
+   dieuDeLaRaclette VARCHAR2(50),
+   dieuDesLegumes VARCHAR2(50),
+   idAli NUMBER(10) NOT NULL,
+   CONSTRAINT pk_Croyance PRIMARY KEY(idCr),
+   CONSTRAINT fk_Croyance_Aliment FOREIGN KEY(idAli) REFERENCES Aliment(idAli)
+);
+
+CREATE TABLE Opposition_De_Conviction_Personnelle(
+   idOCP NUMBER(10),
+   politique VARCHAR2(50),
+   ethnique VARCHAR2(50),
+   chocDesCultures VARCHAR2(50),
+   idAli NUMBER(10) NOT NULL,
+   CONSTRAINT pk_Opposition PRIMARY KEY(idOCP),
+   CONSTRAINT fk_Opposition_Aliment FOREIGN KEY(idAli) REFERENCES Aliment(idAli)
+);
+
+CREATE TABLE Croisade(
+   idCro NUMBER(10),
+   duree TIMESTAMP,
+   dateDep DATE,
+   nom VARCHAR2(50),
+   dateFin DATE,
+   type VARCHAR2(50),
+   CONSTRAINT pk_Croisade PRIMARY KEY(idCro)
+);
+
+CREATE TABLE Tenrac(
+   idT NUMBER(10),
+   nom VARCHAR2(50),
+   prenom VARCHAR2(50),
+   age NUMBER(10),
+   adresse VARCHAR2(50),
+   courriel VARCHAR2(50),
+   numTel NUMBER(10),
+   adressePostale NUMBER(10),
+   idCr NUMBER(10) NOT NULL,
+   idOA NUMBER(10) NOT NULL,
+   idOT NUMBER(10) NOT NULL,
+   idCT NUMBER(10) NOT NULL,
+   CONSTRAINT pk_Tenrac PRIMARY KEY(idT),
+   CONSTRAINT fk_Tenrac_Croyance FOREIGN KEY(idCr) REFERENCES Croyance(idCr),
+   CONSTRAINT fk_Tenrac_Organisme FOREIGN KEY(idOA) REFERENCES Organisme(idOA),
+   CONSTRAINT fk_Tenrac_Ordre FOREIGN KEY(idOT) REFERENCES Ordre_Tenrac(idOT),
+   CONSTRAINT fk_Tenrac_Club FOREIGN KEY(idCT) REFERENCES Club_Tenrac(idCT)
+);
+
+CREATE TABLE Grade(
+   idG NUMBER(10),
+   nom VARCHAR2(50),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   idT NUMBER(10),
+   CONSTRAINT pk_Grade PRIMARY KEY(idG),
+   CONSTRAINT fk_Grade_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT)
+);
+
+CREATE TABLE Rang(
+   idR NUMBER(10),
+   nom VARCHAR2(50),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   idT NUMBER(10),
+   CONSTRAINT pk_Rang PRIMARY KEY(idR),
+   CONSTRAINT fk_Rang_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT)
+);
+
+CREATE TABLE Titre(
+   idTi NUMBER(10),
+   nom VARCHAR2(50),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   idT NUMBER(10),
+   CONSTRAINT pk_Titre PRIMARY KEY(idTi),
+   CONSTRAINT fk_Titre_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT)
+);
+
+CREATE TABLE Dignite(
+   idD NUMBER(10),
+   nom VARCHAR2(50),
+   type VARCHAR2(50),
+   libelle VARCHAR2(50),
+   idT NUMBER(10),
+   CONSTRAINT pk_Dignite PRIMARY KEY(idD),
+   CONSTRAINT fk_Dignite_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT)
+);
+
+CREATE TABLE Carte_Membre(
+   idT NUMBER(10),
+   RFID NUMBER(10) NOT NULL,
+   numCode NUMBER(10) NOT NULL,
+   numClub NUMBER(10) NOT NULL,
+   numSIRET NUMBER(10) NOT NULL,
+   raisonSociale VARCHAR2(50),
+   CONSTRAINT pk_Carte_Membre PRIMARY KEY(idT),
+   CONSTRAINT uq_Carte_RFID UNIQUE(RFID),
+   CONSTRAINT uq_Carte_numCode UNIQUE(numCode),
+   CONSTRAINT uq_Carte_numClub UNIQUE(numClub),
+   CONSTRAINT uq_Carte_numSIRET UNIQUE(numSIRET),
+   CONSTRAINT fk_Carte_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT)
+);
+
+CREATE TABLE Groupe_Tenrac(
+   idT NUMBER(10),
+   dateInscription DATE,
+   adressePartenaire VARCHAR2(50),
+   CONSTRAINT pk_Groupe_Tenrac PRIMARY KEY(idT),
+   CONSTRAINT fk_Groupe_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT)
+);
+
+CREATE TABLE Repas(
+   idR NUMBER(10),
+   nomPlat VARCHAR2(50),
+   idM NUMBER(10) NOT NULL,
+   CONSTRAINT pk_Repas PRIMARY KEY(idR),
+   CONSTRAINT fk_Repas_Machine FOREIGN KEY(idM) REFERENCES Machine(idM)
+);
+
+CREATE TABLE Restaurant(
+   idRe NUMBER(10),
+   nom VARCHAR2(50),
+   ville VARCHAR2(50),
+   adresse VARCHAR2(50),
+   type VARCHAR2(50),
+   lieu VARCHAR2(50),
+   idCu NUMBER(10) NOT NULL,
+   CONSTRAINT pk_Restaurant PRIMARY KEY(idRe),
+   CONSTRAINT fk_Restaurant_Cuisinier FOREIGN KEY(idCu) REFERENCES Cuisinier(idCu)
+);
+
+CREATE TABLE Est_Compose_De(
+   idR NUMBER(10),
+   idP NUMBER(10),
+   CONSTRAINT pk_Est_Compose_De PRIMARY KEY(idR, idP),
+   CONSTRAINT fk_EstCompose_Repas FOREIGN KEY(idR) REFERENCES Repas(idR),
+   CONSTRAINT fk_EstCompose_Plat FOREIGN KEY(idP) REFERENCES Plat(idP)
+);
+
+CREATE TABLE Est_Constitue(
+   idR NUMBER(10),
+   idRa NUMBER(10),
+   CONSTRAINT pk_Est_Constitue PRIMARY KEY(idR, idRa),
+   CONSTRAINT fk_EstConstitue_Repas FOREIGN KEY(idR) REFERENCES Repas(idR),
+   CONSTRAINT fk_EstConstitue_Raclette FOREIGN KEY(idRa) REFERENCES Raclette(idRa)
+);
+
+CREATE TABLE Provoque(
+   idAli NUMBER(10),
+   idAll NUMBER(10),
+   CONSTRAINT pk_Provoque PRIMARY KEY(idAli, idAll),
+   CONSTRAINT fk_Provoque_Aliment FOREIGN KEY(idAli) REFERENCES Aliment(idAli),
+   CONSTRAINT fk_Provoque_Allergie FOREIGN KEY(idAll) REFERENCES Allergie(idAll)
+);
+
+CREATE TABLE Est_Accompagne_De(
+   idP NUMBER(10),
+   idS NUMBER(10),
+   CONSTRAINT pk_Est_Accompagne_De PRIMARY KEY(idP, idS),
+   CONSTRAINT fk_Accompagne_Plat FOREIGN KEY(idP) REFERENCES Plat(idP),
+   CONSTRAINT fk_Accompagne_Sauce FOREIGN KEY(idS) REFERENCES Sauce(idS)
+);
+
+CREATE TABLE Commande(
+   idT NUMBER(10),
+   idR NUMBER(10),
+   CONSTRAINT pk_Commande PRIMARY KEY(idT, idR),
+   CONSTRAINT fk_Commande_Groupe FOREIGN KEY(idT) REFERENCES Groupe_Tenrac(idT),
+   CONSTRAINT fk_Commande_Repas FOREIGN KEY(idR) REFERENCES Repas(idR)
+);
+
+CREATE TABLE Federe(
+   idOT NUMBER(10),
+   idCT NUMBER(10),
+   CONSTRAINT pk_Federe PRIMARY KEY(idOT, idCT),
+   CONSTRAINT fk_Federe_Ordre FOREIGN KEY(idOT) REFERENCES Ordre_Tenrac(idOT),
+   CONSTRAINT fk_Federe_Club FOREIGN KEY(idCT) REFERENCES Club_Tenrac(idCT)
+);
+
+CREATE TABLE Valide(
+   idT NUMBER(10),
+   idM NUMBER(10),
+   CONSTRAINT pk_Valide PRIMARY KEY(idT, idM),
+   CONSTRAINT fk_Valide_Tenrac FOREIGN KEY(idT) REFERENCES Tenrac(idT),
+   CONSTRAINT fk_Valide_Machine FOREIGN KEY(idM) REFERENCES Machine(idM)
+);
+
+CREATE TABLE A(
+   idM NUMBER(10),
+   idH NUMBER(10),
+   CONSTRAINT pk_A PRIMARY KEY(idM, idH),
+   CONSTRAINT fk_A_Certificat FOREIGN KEY(idM) REFERENCES Certificat(idM),
+   CONSTRAINT fk_A_Historique FOREIGN KEY(idH) REFERENCES Historique(idH)
+);
+
+CREATE TABLE Est_Consigne_Dans(
+   idM NUMBER(10),
+   idReg NUMBER(10),
+   CONSTRAINT pk_Est_Consigne_Dans PRIMARY KEY(idM, idReg),
+   CONSTRAINT fk_Consigne_Machine FOREIGN KEY(idM) REFERENCES Machine(idM),
+   CONSTRAINT fk_Consigne_Registre FOREIGN KEY(idReg) REFERENCES Registre(idReg)
+);
+
+CREATE TABLE Sert(
+   idR NUMBER(10),
+   idCu NUMBER(10),
+   CONSTRAINT pk_Sert PRIMARY KEY(idR, idCu),
+   CONSTRAINT fk_Sert_Repas FOREIGN KEY(idR) REFERENCES Repas(idR),
+   CONSTRAINT fk_Sert_Cuisinier FOREIGN KEY(idCu) REFERENCES Cuisinier(idCu)
+);
+
+CREATE TABLE Fait(
+   idM NUMBER(10),
+   idEn NUMBER(10,2),
+   CONSTRAINT pk_Fait PRIMARY KEY(idM, idEn),
+   CONSTRAINT fk_Fait_Machine FOREIGN KEY(idM) REFERENCES Machine(idM),
+   CONSTRAINT fk_Fait_Entretien FOREIGN KEY(idEn) REFERENCES Entretien(idEn)
+);
+
+CREATE TABLE Est_Fabrique_Sauce(
+   idS NUMBER(10),
+   idAli NUMBER(10),
+   CONSTRAINT pk_Est_Fabrique_Sauce PRIMARY KEY(idS, idAli),
+   CONSTRAINT fk_FabriqueSauce_Sauce FOREIGN KEY(idS) REFERENCES Sauce(idS),
+   CONSTRAINT fk_FabriqueSauce_Ingredient FOREIGN KEY(idAli) REFERENCES Ingredient(idAli)
+);
+
+CREATE TABLE Est_Fabrique_Machine(
+   idM NUMBER(10),
+   idF NUMBER(10),
+   CONSTRAINT pk_Est_Fabrique_Machine PRIMARY KEY(idM, idF),
+   CONSTRAINT fk_FabriqueMachine_Machine FOREIGN KEY(idM) REFERENCES Machine(idM),
+   CONSTRAINT fk_FabriqueMachine_Fabriquant FOREIGN KEY(idF) REFERENCES Fabriquant(idF)
+);
+
+CREATE TABLE Amene_A(
+   idCr NUMBER(10),
+   idOCP NUMBER(10),
+   CONSTRAINT pk_Amene_A PRIMARY KEY(idCr, idOCP),
+   CONSTRAINT fk_AmeneA_Croyance FOREIGN KEY(idCr) REFERENCES Croyance(idCr),
+   CONSTRAINT fk_AmeneA_Opposition FOREIGN KEY(idOCP) REFERENCES Opposition_De_Conviction_Personnelle(idOCP)
+);
+
+CREATE TABLE Engendre(
+   idOCP NUMBER(10),
+   idCro NUMBER(10),
+   CONSTRAINT pk_Engendre PRIMARY KEY(idOCP, idCro),
+   CONSTRAINT fk_Engendre_Opposition FOREIGN KEY(idOCP) REFERENCES Opposition_De_Conviction_Personnelle(idOCP),
+   CONSTRAINT fk_Engendre_Croisade FOREIGN KEY(idCro) REFERENCES Croisade(idCro)
+);
+
+CREATE TABLE Possede(
+   idOT NUMBER(10),
+   idCT NUMBER(10),
+   idM NUMBER(10),
+   CONSTRAINT pk_Possede PRIMARY KEY(idOT, idCT, idM),
+   CONSTRAINT fk_Possede_Ordre FOREIGN KEY(idOT) REFERENCES Ordre_Tenrac(idOT),
+   CONSTRAINT fk_Possede_Club FOREIGN KEY(idCT) REFERENCES Club_Tenrac(idCT),
+   CONSTRAINT fk_Possede_Machine FOREIGN KEY(idM) REFERENCES Machine(idM)
+);
+
+-- **************************************************************************** Insertions des données
+
+PROMPT "Insertions des données"; 
+
+-- ORDRE_TENRAC
+
+
+
+-- CLUB_TENRAC
+
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (1, 'Club Tender Nord', '2 rue du Club', 'Lille', 'Local', 'Nord');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (2, 'Club Tender Sud', '4 avenue du Soleil', 'Marseille', 'Local', 'Sud');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (3, 'Club Tender Est', '6 rue de l''Est', 'Strasbourg', 'Local', 'Est');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (4, 'Club Tender Ouest', '8 rue de l''Ouest', 'Nantes', 'Local', 'Ouest');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (5, 'Club Tender Centre', '10 place du Centre', 'Lyon', 'Local', 'Centre');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (20, 'Cercle de la Pomme de Terre', '22 Rue du Champ', 'Local', 'Grenoble', 'Isère');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (6, 'Bastion du Tender Épicé', '45 Avenue du Piment', 'Régional', 'Bordeaux', 'Sud-Ouest');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (7, 'Amicale du Reblochon Coulant', '12 Route des Alpes', 'Départemental', 'Annecy', 'Haute-Savoie');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (8, 'Ligue des Gratinés Bretons', '8 Quai de la Marine', 'Local', 'Brest', 'Bretagne');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (9, 'Club des Tenders de l''Est', '30 Rue des Vosges', 'Régional', 'Strasbourg', 'Grand Est');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (10, 'Le Poêlon Normand', '5 Rue du Beurre', 'Local', 'Caen', 'Normandie');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (11, 'Escadron de la Panure Dorée', '19 Rue Militaire', 'National', 'Paris', 'Île-de-France');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (12, 'Alliance Raclette Centrale', '3 Place du Marché', 'Régional', 'Tours', 'Centre-Val de Loire');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (13, 'Confrérie du Seau de Tenders', '7 Boulevard Maritime', 'Local', 'Nantes', 'Pays de la Loire');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (14, 'Sanctuaire de la Tomme', '2 Chemin de la Montagne', 'Local', 'Chambéry', 'Savoie');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (15, 'Club Outre-mer Tenrac', '10 Rue des Cocotiers', 'International', 'Fort-de-France', 'Martinique');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (16, 'L''Avant-Garde du Fromage', '55 Rue de la Liberté', 'Régional', 'Dijon', 'Bourgogne');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (17, 'Cénacle du Poulet Croustillant', '14 Rue de l''Université', 'Local', 'Montpellier', 'Occitanie');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (18, 'La Guilde des Poêlons Nomades', 'Camping Car 01', 'Itinérant', 'Limoges', 'Limousin');
+INSERT INTO Club_Tenrac (idCT, nom, adresse, type, ville, territoire) VALUES (19, 'Club Tenrac Corse', '22 Cours Napoléon', 'Départemental', 'Ajaccio', 'Corse');
+
+--PLAT MOFIF Q11
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (1, 'Raclette au Brocoli', 'Spécial', 'Plat avec légume rare');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (2, 'Raclette Courgette', 'Spécial', 'Plat végétal exceptionnel');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (3, 'Tenders Frits Classiques', 'Classique', 'Tenders de poulet dorés et croustillants');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (4, 'Tenders Épicés', 'Épicé', 'Tenders marinés au piment');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (5, 'Pizza Quatre Fromages', 'Italien', 'Pizza généreuse aux fromages fondants');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (6, 'Quiche Lorraine', 'Traditionnel', 'Quiche garnie lardons et crème');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (7, 'Kebab Maison', 'Fusion', 'Viande à kebab sauce blanche');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (8, 'Saumon Grillé', 'Prestige', 'Saumon fumé façon tenrac');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (9, 'Burger Tenrac', 'Fusion', 'Burger bœuf et fromage fondu');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (10, 'Fondue Savoyarde', 'Traditionnel', 'Fromage fondu au vin blanc');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (11, 'Tartiflette', 'Traditionnel', 'Pommes de terre reblochon lardons');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (12, 'Pierrade de Bœuf', 'Prestige', 'Bœuf cuit sur pierre chaude');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (13, 'Tacos Fromage', 'Fusion', 'Tacos garnis de fromage fondu');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (14, 'Hot Dog Chorizo', 'Classique', 'Pain brioche et chorizo grillé');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (15, 'Croque Monsieur Tenrac', 'Classique', 'Jambon fromage gratiné au four');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (16, 'Lasagnes Bolognaise', 'Italien', 'Lasagnes gratinées à la bolognaise');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (17, 'Gratin Dauphinois', 'Traditionnel', 'Pommes de terre crème et gruyère');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (18, 'Wrap Poulet Caesar', 'Fusion', 'Wrap croustillant sauce caesar');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (19, 'Poutine Tenrac', 'Exotique', 'Frites fromage et sauce brune');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (20, 'Nachos Fromage', 'Exotique', 'Chips de maïs et fromage fondu');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (21, 'Crêpe Jambon Fromage', 'Classique', 'Crêpe garnie jambon et emmental');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (22, 'Pasta Carbonara', 'Italien', 'Pâtes œuf lardons parmesan');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (23, 'Œufs Cocotte', 'Traditionnel', 'Œufs crème et lardons au four');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (24, 'Tarte Flambée', 'Alsacien', 'Crème fraîche oignons et lardons');
+INSERT INTO Plat (idP, nom, type, libelle) VALUES (25, 'Aligot Tenrac', 'Traditionnel', 'Purée de pommes de terre et tomme');
+
+-- ALIMENT modif Q 11  et Q16
+
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (30, 'Légume', 'Brocoli', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (31, 'Légume', 'Courgette', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (100, 'Viande', 'Poulet fermier', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (101, 'Viande', 'Bœuf haché', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (107, 'Viande', 'Chevreau', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (200, 'Divers', 'Tender Sacré', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (201, 'Divers', 'Raclette Divine', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (108, 'Charcuterie', 'Saucisson sec', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (110, 'Charcuterie', 'Coppa', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (111, 'Charcuterie', 'Rosette de Lyon', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (112, 'Charcuterie', 'Pancetta', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (113, 'Charcuterie', 'Andouillette', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (114, 'Charcuterie', 'Boudin noir', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (115, 'Charcuterie', 'Merguez', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (116, 'Fromage', 'Raclette de Savoie', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (117, 'Fromage', 'Beaufort', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (118, 'Fromage', 'Tomme de Savoie', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (119, 'Fromage', 'Munster', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (122, 'Fromage', 'Abondance', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (123, 'Condiment', 'Moutarde ancienne', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (124, 'Condiment', 'Ketchup maison', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (125, 'Condiment', 'Mayonnaise', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (126, 'Condiment', 'Sauce soja', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (130, 'Féculent', 'Riz basmati', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (131, 'Féculent', 'Pâtes fraîches', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (132, 'Féculent', 'Pain de campagne', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (133, 'Féculent', 'Semoule', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (134, 'Féculent', 'Quinoa', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (135, 'Poisson', 'Saumon fumé', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (136, 'Poisson', 'Thon en boîte', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (137, 'Poisson', 'Anchois', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (138, 'Poisson', 'Cabillaud', 'Grande');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (139, 'Divers', 'Ananas en tranche', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (140, 'Divers', 'Noix', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (141, 'Divers', 'Miel', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (142, 'Divers', 'Crème fraîche', 'Moyenne');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (143, 'Divers', 'Beurre demi-sel', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (144, 'Épice', 'Curcuma', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (145, 'Épice', 'Paprika fumé', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (146, 'Épice', 'Cannelle', 'Petite');
+INSERT INTO Aliment (idAli, type, nom, taille) VALUES (147, 'Épice', 'Cumin', 'Petite');
+
+-- ALLERGIE
+INSERT INTO Allergie (idAll, nom, effet) VALUES (3, 'Arachide', 'Choc anaphylactique');
+
+-- SAUCE  modif Q17
+INSERT INTO Sauce (idS, type, nom) VALUES (1, 'Froide', 'Mayonnaise Tenrac');
+INSERT INTO Sauce (idS, type, nom) VALUES (2, 'Froide', 'Sauce Blanche Tenrac');
+INSERT INTO Sauce (idS, type, nom) VALUES (3, 'Chaude', 'Sauce Moutarde');
+INSERT INTO Sauce (idS, type, nom) VALUES (4, 'Froide', 'Ketchup Maison');
+INSERT INTO Sauce (idS, type, nom) VALUES (5, 'Piquante', 'Harissa Tenrac');
+INSERT INTO Sauce (idS, type, nom) VALUES (6, 'Froide', 'Sauce Caesar');
+INSERT INTO Sauce (idS, type, nom) VALUES (7, 'Chaude', 'Sauce Curry');
+INSERT INTO Sauce (idS, type, nom) VALUES (8, 'Piquante', 'Sauce Sriracha');
+
+
+
+-- MACHINE Q3
+
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (2, 'Appareil Alpin', 'Tradition-500', '120');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (3, 'Station Tenders-Raclette', 'Combo-Max', '125');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (4, 'Grill du Chevalier', 'Prestige-X', '60');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (5, 'Meuleuse Sacrée', 'Dignité-Plus', '105');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (6, 'Petit Appareil Duo', 'Eco-Cheese', '102');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (7, 'Raclette de Table', 'Basique', '35');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (8, 'Machine Occasion', 'Old-School', '120');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (9, 'Grill d''Appoint', 'Camping-Soft', '25');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (10, 'Pack Etudiant', 'Solo-Cheese', '15');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (11, 'Mini Raclette' , 'V3-Elite', '50');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (12, 'Super Chicken', 'Tradition-500', '120');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (13, ' Tenders Supreme Famillial', 'Combo-Max', '125');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (14, 'Menu Enfant', 'Prestige-X', '10');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (15, 'Tacos Poulet XXL', 'Basique', '20');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (16, 'Tacos Poulet XL', 'Basique', '15');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (17, 'Tacos Poulet L', 'Basique', '10');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (18, 'Menu du peuple', 'Old-School', '110');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (19, 'Menu Grill', 'Camping-Soft', '25');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (20, 'Pack Etudiant Tenders', 'Solo-Cheese', '15');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (21, 'Raclette Pro', 'V3-Elite', '120');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (22, 'Bucket de Tenders', 'Tradition-500', '10');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (23, 'Finger Food', 'Combo-Max', '150');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (24, 'Crunchy Deluxe', 'Prestige-X', '102');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (25, 'Crispy Lover', 'Dignité-Plus', '105');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (26, 'Crousti Famillial', 'Eco-Cheese', '45');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (27, 'Gourmet Croustillant', 'Basique', '35');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (28, 'Menu Doré du Chef', 'Old-School', '120');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (29, 'Menu Inferno Tenders', 'Camping-Soft', '25');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (30, 'Menu Tenders Infini', 'Solo-Cheese', '200');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (31, 'XXL Hot Tenders', 'GT-3000', '20');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (32, 'Tenders Challenge', 'V3-Elite', '105');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (33, 'Grill ULTIME', 'Combo-Max', '150');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (34, 'Canette', 'Boisson', '2.00');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (35, 'Bouteille', 'Boisson', '1.20');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (36, 'Pack Premium', 'Prestige-X', '150');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (37, 'Appareil Gourmet', 'V3-Elite', '70');
+INSERT INTO Machine (idM, nom, modele, prix) VALUES (38, 'Golden Chicken', 'GT-3000', '110');
+
+
+
+-- CERTIFICAT
+
+
+
+
+
+-- TENRAC MODIF Q16 
+
+--Historique 
+INSERT INTO Historique (idH, dateEntretient, nomClub) VALUES (21, TO_DATE('2023-05-04', 'YYYY-MM-DD'), 'Poulet Fondant');
+
+--Registre 
+INSERT INTO Registre (idReg, status, periodicite, idH) VALUES (21, 'Actif', '1/semaine', 57904);
+
+--Cuisinier 
+INSERT INTO Cuisinier (idCu, nom, prenom, age, adresse) VALUES (6, 'Chauvin', 'Stéphanie', 36, '15, rue Grégoire Schneider, 35000 Rennes');
+
+--Organisme  MODIF Q16 
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (1, 'TenderCorp', 'Entreprise', '1 rue du Poulet', 'Paris', 75001, 11111111111111);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (2, 'Raclette & Fils', 'Entreprise', '2 rue du Fromage', 'Lyon', 69001, 22222222222222);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (3, 'École du Tender', 'Formation', '3 avenue du Gril', 'Bordeaux', 33000, 33333333333333);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (4, 'Institut Raclette', 'Formation', '4 place de la Fondue', 'Toulouse', 31000, 44444444444444);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (5, 'Association Tenrac', 'Association', '5 chemin du Tender', 'Nice', 06000, 55555555555555);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (23, 'Germain', 'Entreprise', '6 boulevard Étienne', 'Nantes', 44000, 48709430206715);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (6, 'Fromagerie du Nord', 'Commerce', '6 rue du Cheddar', 'Lille', 59000, 66666666666666);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (7, 'Gril & Tradition', 'Entreprise', '7 avenue du Feu', 'Strasbourg', 67000, 77777777777777);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (8, 'Centre de Formation Tenrac', 'Formation', '8 rue de la Pierrade', 'Grenoble', 38000, 88888888888888);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (9, 'Coopérative du Tender', 'Coopérative', '9 chemin du Poulet', 'Rennes', 35000, 99999999999999);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (10, 'Société Raclette Express', 'Entreprise', '10 place du Fromage', 'Montpellier', 34000, 10101010101010);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (11, 'ONG Tender Solidaire', 'ONG', '11 rue de la Solidarité', 'Marseille', 13001, 11001100110011);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (12, 'Cabinet Raclette & Droit', 'Juridique', '12 avenue de la Justice', 'Paris', 75008, 12001200120012);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (13, 'École des Chevaliers Fondus', 'Formation', '13 rue du Chevalier', 'Dijon', 21000, 13001300130013);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (14, 'Entreprise GrilTech', 'Entreprise', '14 boulevard de l''Innovation', 'Toulouse', 31000, 14001400140014);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (15, 'Association du Fromage Fondu', 'Association', '15 chemin des Alpages', 'Annecy', 74000, 15001500150015);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (16, 'Institut des Grands Maîtres', 'Formation', '16 place du Maître', 'Chambéry', 73000, 16001600160016);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (17, 'Fédération Tenrac France', 'Association', '17 rue de la Fédération', 'Paris', 75007, 17001700170017);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (18, 'SAS Tenders & Co', 'Entreprise', '18 avenue du Commerce', 'Bordeaux', 33000, 18001800180018);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (19, 'Groupe Fromage National', 'Entreprise', '19 rue Nationale', 'Lyon', 69002, 19001900190019);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (20, 'Club des Commandeurs', 'Association', '20 boulevard du Commandeur', 'Nice', 06000, 20002000200020);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (50, 'Cabinet Juridique Durand', 'Juridique', '12 rue de la Loi', 'Paris', 75001, 50005000500050);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (51, 'École Nationale du Tender', 'Formation', '3 avenue du Poulet', 'Lyon', 69001, 51005100510051);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (52, 'Fromagerie des Alpes', 'Commerce', '8 rue du Fromage', 'Grenoble', 38000, 52005200520052);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (53, 'Association Raclette et Co', 'Association', '5 place de la Fondue', 'Chambéry', 73000, 53005300530053);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (54, 'Institut du Gril Sacré', 'Formation', '22 boulevard du Gril', 'Marseille', 13001, 54005400540054);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (55, 'Société des Chevaliers Fondus', 'Association', '1 rue de la Pierre', 'Bordeaux', 33000, 55005500550055);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (56, 'Entreprise TenderTech', 'Entreprise', '9 rue de l''Innovation', 'Toulouse', 31000, 56005600560056);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (57, 'Coopérative du Fromage Fondu', 'Coopérative', '14 chemin des Pâturages', 'Annecy', 74000, 57005700570057);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (58, 'ONG Tenders Sans Frontières', 'ONG', '7 allée de la Solidarité', 'Nantes', 44000, 58005800580058);
+INSERT INTO Organisme (idOA, nomEntreprise, type, adresse, ville, codePostale, siret) VALUES (59, 'Club Fromage de l''Ouest', 'Association', '3 rue de la Crème', 'Rennes', 35000, 59005900590059);
+
+--INGREDIENT 
+INSERT INTO Ingredient (idAli, type, libelle, nom) VALUES (1, 'Condiment', 'Huile de tournesol', 'Huile de tournesol');
+
+
+--Ordre Tenrac MODIF Q16 
+
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (1, 'Ordre Suprême du Tender', '1 rue du Tender', 'Paris', 'National', 75001);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (2, 'Ordre Régional Sud', '5 avenue de la Raclette', 'Marseille', 'Régional', 13001);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (3, 'Ordre Régional Nord', '3 rue du Fromage', 'Lille', 'Régional', 59000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (4, 'Ordre Régional Est', '8 place du Gril', 'Strasbourg', 'Régional', 67000);
+--INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (5, 'Ordre Régional Ouest', '12 boulevard du Tender', 'Nantes', 'Régional', 44000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (5, 'Le Temple du Croustillant', '7 Avenue du Colmar', 'Strasbourg', 'Régional', 67000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (6, 'Le Temple du Croustillant', '32 Avenue de la Visitation', 'Annecy', 'Régional', 74000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (7, 'Le Temple du Croustillant', '114 Rue des Troènes', 'Toulouse', 'Régional', 31200);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (8, 'Le Temple du Croustillant', 'Resteaurant hichiraku', 'Konoha', 'Régional', 13004);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (9, 'Le Temple du Croustillant', '6 boulvard Sévigné', 'Bougainville', 'Régional', 13015);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (10, 'Le Temple du Croustillant', '16 boulvard Gambette','Pélissanne', 'Régional', 13330);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (11, 'Le Temple du Croustillant', '8 place des jonquilles', 'Miramas', 'Régional', 13140);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (12, 'Le Temple du Croustillant', '64 avenue du maréchal Juin', 'Perpignan', 'Départemental', 66000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (13, 'Le Temple du Croustillant', '45 chemin des Anciens Verger', 'Avignon', 'Départemental', 84000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (14, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Toulouse', 'Départemental', 31004);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (15, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Perpette les Valons', 'Départemental', 12345);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (16, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Strasbourg', 'Départemental', 67100);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (17, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Strasbourg', 'Départemental', 67200);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (18, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Nara', 'Départemental', 63000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (19, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Gap', 'Départemental', 05000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (20, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Saint-Chamas', 'Départemental', 13250);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (21, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Montpellier', 'Départemental', 34000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (22, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Orange', 'International', 84100);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (23, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Aix', 'International', 13080);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (24, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Aix', 'International', 13098);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (25, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'New-York', 'International', 07020);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (26, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'New-Donk City', 'International', 10009);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (27, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Lyon', 'International', 69000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (28, 'Le Temple du Croustillant', 'Musée du Louvre', 'Paris', 'International', 70001);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (29, 'Le Temple du Croustillant', '51 travers du moulin de la villette', 'Marseille', 'International', 13000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (30, 'Le Temple du Croustillant', 'Chemin de travers', 'Poudlard', 'International', 76426);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (31, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Salon-de-Provence', 'International', 13300);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (32, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Radiator Springs', 'Intercontinental', 66);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (33, 'Le Temple du Croustillant', '1 bis Rue du Seau', 'Tokyo', 'Intercontinental', 10000);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (34, 'Le Temple du Croustillant', 'Laboratoire du Prof Chen', 'Bourg-Palette', 'Intercontinental', 151);
+INSERT INTO Ordre_Tenrac (idOT, nom, adresse, ville, type, codePostale) VALUES (35, 'Le Temple du Croustillant', '11 place du Marée Armée', 'Chromapolis', 'Intercontinental', 90153);
+
+--Fabriquant 
+INSERT INTO Fabriquant (idF, nom, prenom, adresse, codePostale, ville) VALUES (1, 'Marchal', 'Édouard', '96, rue Pauline Weiss', 33000, 'Bordeaux');
+
+-- RACLETTE
+
+
+--LEGUME MODIF Q11
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (30, 'Légume', 'Brocoli', 'Petite');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (31, 'Légume', 'Courgette', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (52, 'Légume', 'Carotte', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (53, 'Légume', 'Poireau', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (54, 'Légume', 'Épinard', 'Petite');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (55, 'Légume', 'Chou-fleur', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (56, 'Légume', 'Navet', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (57, 'Légume', 'Radis', 'Petite');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (58, 'Légume', 'Asperge verte', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (59, 'Légume', 'Artichaut', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (60, 'Légume', 'Fenouil', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (61, 'Légume', 'Céleri branche', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (62, 'Légume', 'Betterave rouge', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (63, 'Légume', 'Patate douce', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (64, 'Légume', 'Pomme de terre', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (65, 'Légume', 'Aubergine', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (66, 'Légume', 'Tomate cerise', 'Petite');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (67, 'Légume', 'Poivron rouge', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (68, 'Légume', 'Poivron jaune', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (69, 'Légume', 'Poivron vert', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (70, 'Légume', 'Concombre', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (71, 'Légume', 'Laitue', 'Moyenne');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (72, 'Légume', 'Roquette', 'Petite');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (73, 'Légume', 'Chou rouge', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (74, 'Légume', 'Chou vert', 'Grande');
+INSERT INTO Legume (idAli, type, nom, taille) VALUES (75, 'Légume', 'Chou de Bruxelles', 'Petite');
+
+
+--Entretien 
+
+INSERT INTO Entretien (idEn, dateEntretien) VALUES (21, TO_DATE('2023-08-01', 'YYYY-MM-DD'));
+
+
+--Croyence modif Q16
+
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (1, 'Tenracus', 'Tenderus', 'Raclettos', 'Legumius', 200);
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (2, 'Grandus', 'Croustilus', 'Fromatos', 'Verdus', 201);
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (3, 'Supremus', 'Fondus', 'Gratinus', 'Herbius', 200);
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (1, 'Tenracos', 'Croustillus', 'Raclettor', 'Verdinus', 1),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (2, 'Tenrax', 'Fritor', 'Fromagor', 'Saladix', 2),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (3, 'Tenrakus', 'Crispion', 'Montdorax', 'Legumor', 3),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (4, 'Tenralion', 'Goldencris', 'Fonduzar', 'Brocolix', 4),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (5, 'Tenrador', 'Crunchor', 'Cheesus', 'Carottus', 5),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (6, 'Tenrakor', 'Tenderix', 'Racletix', 'Courgetor', 6),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (7, 'Tenramus', 'Fryzor', 'Fromagus', 'Tomatus', 7),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (8, 'Tenrion', 'Croustax', 'Fonduros', 'Verdax', 8),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (9, 'Tenrathor', 'Grillix', 'Cheddarion', 'Legumix', 9),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (10, 'Tenrakhan', 'Crispor', 'Raclethor', 'Vegedus', 10),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (11, 'Tenrakos', 'Friturion', 'Montdorus', 'Salador', 11),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (12, 'Tenralis', 'Crunchix', 'Fondux', 'Carotix', 12),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (13, 'Tenrakir', 'Croustion', 'Cheesdor', 'Verdor', 13),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (14, 'Tenragon', 'Grillor', 'Racledor', 'Legumax', 14),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (15, 'Tenrakus', 'Tenderon', 'Fromador', 'Vegor', 15),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (16, 'Tenralor', 'Fryx', 'Fonduion', 'Saladus', 16),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (17, 'Tenrador', 'Crispix', 'Cheesix', 'Carodus', 17),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (18, 'Tenrakor', 'Crunchor', 'Raclor', 'Verdion', 18),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (19, 'Tenrion', 'Tenderax', 'Fondor', 'Legumus', 19),
+INSERT INTO Croyance (idCr, dieuTenrac, dieuDesTenders, dieuDeLaRaclette, dieuDesLegumes, idAli) VALUES (20, 'Tenrax', 'Friturax', 'Cheddarus', 'Vegetor', 20);
+
+-- OPPOSITION_DE_CONVICTION_PERSONNELLE
+
+INSERT INTO Opposition_De_Conviction_Personnelle (idOCP, politique, ethnique, chocDesCultures, idAli) VALUES (1, 'Centriste', 'Halal', 'Sauces industrielles', 6);
+
+
+-- CROISADE
+
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (1, '121 jours', TO_DATE('2020-07-10', 'YYYY-MM-DD'), 'Croisade des Légumes Bannis', TO_DATE('2021-06-17', 'YYYY-MM-DD'), 'Cérémoniale');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (2, '348 jours', TO_DATE('2023-06-21', 'YYYY-MM-DD'), 'Croisade du Grand Maître', TO_DATE('2024-01-02', 'YYYY-MM-DD'), 'Traditionnelle');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (3, '95 jours', TO_DATE('2022-05-05', 'YYYY-MM-DD'), 'Croisade de la Raclette Sacrée', TO_DATE('2022-07-10', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (4, '68 jours', TO_DATE('2022-09-13', 'YYYY-MM-DD'), 'Croisade de la Sauce Interdite', TO_DATE('2023-01-03', 'YYYY-MM-DD'), 'Cérémoniale');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (5, '342 jours', TO_DATE('2020-10-24', 'YYYY-MM-DD'), 'Croisade du Tender Doré', TO_DATE('2021-09-30', 'YYYY-MM-DD'), 'Cérémoniale');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (6, '224 jours', TO_DATE('2022-03-20', 'YYYY-MM-DD'), 'Croisade de la Raclette Sacrée', TO_DATE('2022-06-13', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (7, '307 jours', TO_DATE('2020-12-18', 'YYYY-MM-DD'), 'Croisade du Tender Doré', TO_DATE('2021-12-10', 'YYYY-MM-DD'), 'Secrète');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (8, '154 jours', TO_DATE('2020-01-28', 'YYYY-MM-DD'), 'Croisade du Grand Maître', TO_DATE('2020-12-30', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (9, '32 jours', TO_DATE('2023-03-09', 'YYYY-MM-DD'), 'Croisade des Légumes Bannis', TO_DATE('2023-05-30', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (10, '317 jours', TO_DATE('2022-08-11', 'YYYY-MM-DD'), 'Croisade du Tender Doré', TO_DATE('2023-06-09', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (11, '269 jours', TO_DATE('2021-11-04', 'YYYY-MM-DD'), 'Croisade du Fromage Fondu', TO_DATE('2022-01-31', 'YYYY-MM-DD'), 'Cérémoniale');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (12, '116 jours', TO_DATE('2020-09-14', 'YYYY-MM-DD'), 'Croisade du Fromage Fondu', TO_DATE('2021-07-25', 'YYYY-MM-DD'), 'Traditionnelle');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (13, '138 jours', TO_DATE('2022-06-24', 'YYYY-MM-DD'), 'Croisade de la Raclette Sacrée', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 'Cérémoniale');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (14, '49 jours', TO_DATE('2021-10-21', 'YYYY-MM-DD'), 'Croisade des Légumes Bannis', TO_DATE('2022-03-07', 'YYYY-MM-DD'), 'Cérémoniale');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (15, '30 jours', TO_DATE('2022-01-15', 'YYYY-MM-DD'), 'Croisade de la Raclette Sacrée', TO_DATE('2022-06-19', 'YYYY-MM-DD'), 'Traditionnelle');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (16, '303 jours', TO_DATE('2022-05-27', 'YYYY-MM-DD'), 'Croisade des Légumes Bannis', TO_DATE('2023-01-11', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (17, '167 jours', TO_DATE('2021-07-16', 'YYYY-MM-DD'), 'Croisade de la Sauce Interdite', TO_DATE('2021-12-11', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (18, '203 jours', TO_DATE('2022-08-27', 'YYYY-MM-DD'), 'Croisade des Légumes Bannis', TO_DATE('2023-04-12', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (19, '95 jours', TO_DATE('2023-12-16', 'YYYY-MM-DD'), 'Croisade du Tender Doré', TO_DATE('2024-06-14', 'YYYY-MM-DD'), 'Gastronomique');
+INSERT INTO Croisade (idCro, duree, dateDep, nom, dateFin, type) VALUES (20, '286 jours', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 'Croisade du Grand Maître', TO_DATE('2023-07-10', 'YYYY-MM-DD'), 'Traditionnelle');
+
+
+-- GRADE (dépend de TENRAC)
+
+INSERT INTO Grade (idG, nom, type, libelle, idT) VALUES (8, 4, 'Généré', 'Auto', 21);
+
+
+-- RANG (dépend de TENRAC)
+
+
+INSERT INTO Rang (idR, nom, type, libelle, idT) VALUES (3, 2, 'Généré', 'Auto', 21);
+
+
+-- TITRE (dépend de TENRAC
+
+
+INSERT INTO Titre (idTi, nom, type, libelle, idT) VALUES (4, 3, 'Généré', 'Auto', 21);
+INSERT INTO Titre (idTi, nom, type, libelle, idT) VALUES (5, 2, 'Généré', 'Auto', 26);
+
+-- DIGNITE (dépend de TENRAC)
+
+
+-- GROUPE_TENRAC (dépend de TENRAC)
+
+
+-- REPAS (dépend de MACHINE) MIDIF Q11 
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (1, 'Repas du Légume Sacré', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (2, 'Festin Vert Tenrac', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (21, 'Raclette des Chevaliers #21', 2);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (22, 'Raclette Fusion #22', 5);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (23, 'Raclette Tradition #23', 6);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (24, 'Raclette Fusion #24', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (25, 'Raclette des Chevaliers #25', 4);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (26, 'Raclette Ultime #26', 16);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (27, 'Raclette Festive #27', 17);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (28, 'Raclette Ultime #28', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (29, 'Raclette Cérémoniale #29', 6);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (30, 'Raclette Fusion #30', 2);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (31, 'Raclette Secrète #31', 15);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (32, 'Raclette des Chevaliers #32', 5);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (33, 'Raclette Ultime #33', 2);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (34, 'Raclette Tradition #34', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (35, 'Raclette Gourmande #35', 10);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (36, 'Raclette Tradition #36', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (37, 'Raclette Cérémoniale #37', 14);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (38, 'Raclette Festive #38', 9);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (39, 'Raclette Festive #39', 11);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (40, 'Raclette Grand Maître #40', 12);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (41, 'Raclette Gourmande #41', 5);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (42, 'Raclette Gourmande #42', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (43, 'Raclette Tradition #43', 9);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (44, 'Raclette Légendaire #44', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (45, 'Raclette Festive #45', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (46, 'Raclette Gourmande #46', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (47, 'Raclette Festive #47', 14);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (48, 'Raclette Cérémoniale #48', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (49, 'Raclette Gourmande #49', 12);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (50, 'Raclette Prestige #50', 10);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (51, 'Raclette Secrète #51', 11);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (52, 'Raclette Cérémoniale #52', 17);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (53, 'Raclette Spéciale #53', 18);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (54, 'Raclette Fusion #54', 18);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (55, 'Raclette Gourmande #55', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (56, 'Raclette des Chevaliers #56', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (57, 'Raclette Fusion #57', 4);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (58, 'Raclette Prestige #58', 15);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (59, 'Raclette Express #59', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (60, 'Raclette Royale #60', 5);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (61, 'Raclette Ultime #61', 2);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (62, 'Raclette du Chef #62', 2);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (63, 'Raclette Spéciale #63', 14);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (64, 'Raclette Ultime #64', 17);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (65, 'Raclette du Chef #65', 8);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (66, 'Raclette Grand Maître #66', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (67, 'Raclette Légendaire #67', 4);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (68, 'Raclette Festive #68', 3);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (69, 'Raclette Grand Maître #69', 6);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (70, 'Raclette Cérémoniale #70', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (71, 'Raclette Ultime #71', 15);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (72, 'Raclette Express #72', 11);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (73, 'Raclette Royale #73', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (74, 'Raclette Spéciale #74', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (75, 'Raclette Fusion #75', 14);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (76, 'Raclette Royale #76', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (77, 'Raclette Express #77', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (78, 'Raclette Prestige #78', 3);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (79, 'Raclette Ultime #79', 3);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (80, 'Raclette Gourmande #80', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (81, 'Raclette Ultime #81', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (82, 'Raclette Fusion #82', 2);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (83, 'Raclette Festive #83', 18);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (84, 'Raclette Secrète #84', 11);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (85, 'Raclette Royale #85', 4);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (86, 'Raclette Gourmande #86', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (87, 'Raclette Fusion #87', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (88, 'Raclette Express #88', 17);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (89, 'Raclette Secrète #89', 16);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (90, 'Raclette du Chef #90', 3);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (91, 'Raclette Fusion #91', 9);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (92, 'Raclette des Chevaliers #92', 3);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (93, 'Raclette Tradition #93', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (94, 'Raclette Express #94', 7);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (95, 'Raclette Ultime #95', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (96, 'Raclette Tradition #96', 5);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (97, 'Raclette Tradition #97', 7);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (98, 'Raclette du Chef #98', 16);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (99, 'Raclette Festive #99', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (100, 'Raclette du Chef #100', 10);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (101, 'Raclette Cérémoniale #101', 1);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (102, 'Raclette Ultime #102', 18);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (103, 'Raclette du Chef #103', 20);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (104, 'Raclette Express #104', 10);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (105, 'Raclette Cérémoniale #105', 16);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (106, 'Raclette Cérémoniale #106', 11);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (107, 'Raclette Express #107', 12);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (108, 'Raclette Royale #108', 7);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (109, 'Raclette Gourmande #109', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (110, 'Raclette Royale #110', 4);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (111, 'Raclette Tradition #111', 5);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (112, 'Raclette Express #112', 6);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (113, 'Raclette Cérémoniale #113', 4);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (114, 'Raclette Ultime #114', 9);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (115, 'Raclette Spéciale #115', 13);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (116, 'Raclette Légendaire #116', 19);
+INSERT INTO Repas (idR, nomPlat, idM) VALUES (117, 'Raclette Légendaire #117', 1);
+
+
+-- RESTAURANT (dépend de CUISINIER)
+
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (1, 'Chez Laroche', 'Nantes', '130, avenue Adam', 'Manoir', '44000 Nantes', 5);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (2, 'Chez Rodrigues', 'Rennes', '9, rue Gomes', 'Manoir', '35000 Rennes', 159);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (3, 'Chez Rousseau', 'Reims', 'boulevard Roche', 'Brasserie', '51100 Reims', 168);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (4, 'Chez Payet', 'Marseille', 'rue Guilbert', 'Cave', '13001 Marseille', 63);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (5, 'Chez Lefèvre', 'Lyon', '2, avenue Odette Brun', 'Cave', '69001 Lyon', 92);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (6, 'Chez Maillard', 'Rennes', '94, avenue de Marques', 'Salle privée', '35000 Rennes', 73);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (7, 'Chez Dupuy', 'Paris', '4, chemin de Jourdan', 'Manoir', '75001 Paris', 73);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (8, 'Chez Girard', 'Nantes', '53, avenue Timothée Leclercq', 'Cave', '44000 Nantes', 176);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (9, 'Chez Renard', 'Nantes', '59, boulevard Jean', 'Brasserie', '44000 Nantes', 27);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (10, 'Chez Gosselin', 'Montpellier', '39, rue de Renard', 'Sous-sol secret', '34000 Montpellier', 88);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (11, 'Chez Guillon', 'Rennes', '9, rue Thierry', 'Cave', '35000 Rennes', 3);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (12, 'Chez Benoit', 'Paris', 'chemin de Godard', 'Manoir', '75001 Paris', 117);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (13, 'Chez Salmon', 'Lyon', '77, rue Franck Mallet', 'Sous-sol secret', '69001 Lyon', 175);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (14, 'Chez Guillet', 'Reims', '443, boulevard Claire Gomez', 'Salle privée', '51100 Reims', 101);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (15, 'Chez Charrier', 'Marseille', 'rue de Delorme', 'Cave', '13001 Marseille', 108);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (16, 'Chez Étienne', 'Paris', '40, chemin de Nicolas', 'Cave', '75001 Paris', 175);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (17, 'Chez Barthelemy', 'Nice', '256, avenue de Joly', 'Sous-sol secret', '06000 Nice', 14);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (18, 'Chez Collet', 'Lille', 'rue Carre', 'Salle privée', '59000 Lille', 19);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (19, 'Chez Delahaye', 'Paris', '9, rue Navarro', 'Salle privée', '75001 Paris', 145);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (20, 'Chez Parent', 'Bordeaux', '80, avenue Dominique Morvan', 'Salle privée', '33000 Bordeaux', 99);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (21, 'Chez Seguin', 'Marseille', '449, avenue Laure Cohen', 'Manoir', '13001 Marseille', 66);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (22, 'Chez Gaudin', 'Paris', '71, avenue de Didier', 'Salle privée', '75001 Paris', 158);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (23, 'Chez Petit', 'Nantes', 'avenue Emmanuelle Arnaud', 'Cave', '44000 Nantes', 182);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (24, 'Chez Morin', 'Paris', 'avenue Laurent Vallée', 'Manoir', '75001 Paris', 117);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (25, 'Chez Giraud', 'Lille', 'rue de Olivier', 'Sous-sol secret', '59000 Lille', 42);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (26, 'Chez Lesage', 'Nice', '79, avenue Chrétien', 'Cave', '06000 Nice', 105);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (27, 'Chez Gilles', 'Strasbourg', '83, rue Lemaître', 'Brasserie', '67000 Strasbourg', 157);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (28, 'Chez Gaudin', 'Lyon', 'boulevard Besnard', 'Cave', '69001 Lyon', 2);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (29, 'Chez Mace', 'Bordeaux', '7, avenue Claudine Berthelot', 'Manoir', '33000 Bordeaux', 176);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (30, 'Chez Richard', 'Paris', '28, rue de Marty', 'Brasserie', '75001 Paris', 92);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (31, 'Chez Girard', 'Nice', '775, boulevard de Pichon', 'Brasserie', '06000 Nice', 192);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (32, 'Chez Weiss', 'Marseille', '63, avenue Carpentier', 'Brasserie', '13001 Marseille', 90);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (33, 'Chez Blondel', 'Rennes', '75, rue Giraud', 'Brasserie', '35000 Rennes', 122);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (34, 'Chez Lejeune', 'Lyon', 'boulevard de Legros', 'Manoir', '69001 Lyon', 180);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (35, 'Chez Guillot', 'Strasbourg', '5, rue Christiane Chartier', 'Manoir', '67000 Strasbourg', 170);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (36, 'Chez Lemoine', 'Marseille', 'boulevard de Hernandez', 'Sous-sol secret', '13001 Marseille', 79);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (37, 'Chez Leclercq', 'Lyon', '15, chemin Capucine Paul', 'Brasserie', '69001 Lyon', 175);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (38, 'Chez Bruneau', 'Reims', '49, avenue Guyot', 'Sous-sol secret', '51100 Reims', 105);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (39, 'Chez Dupont', 'Nice', '3, boulevard Lenoir', 'Sous-sol secret', '06000 Nice', 155);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (40, 'Chez Potier', 'Paris', '425, avenue Christiane Poulain', 'Sous-sol secret', '75001 Paris', 205);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (41, 'Chez Besnard', 'Toulouse', '15, avenue Guillot', 'Cave', '31000 Toulouse', 200);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (42, 'Chez Collet', 'Paris', '63, boulevard de Munoz', 'Manoir', '75001 Paris', 170);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (43, 'Chez Dumas', 'Paris', '5, avenue Vasseur', 'Brasserie', '75001 Paris', 129);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (44, 'Chez Vallée', 'Paris', '12, rue Charpentier', 'Sous-sol secret', '75001 Paris', 145);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (45, 'Chez Rémy', 'Montpellier', '97, boulevard Pasquier', 'Brasserie', '34000 Montpellier', 183);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (46, 'Chez Hervé', 'Toulouse', '20, avenue Julien', 'Brasserie', '31000 Toulouse', 155);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (47, 'Chez Delannoy', 'Strasbourg', '15, rue Margaret Rémy', 'Sous-sol secret', '67000 Strasbourg', 104);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (48, 'Chez Antoine', 'Strasbourg', '72, rue Guibert', 'Sous-sol secret', '67000 Strasbourg', 51);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (49, 'Chez Benoit', 'Strasbourg', '5, rue Guichard', 'Brasserie', '67000 Strasbourg', 87);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (50, 'Chez Deschamps', 'Nantes', '530, boulevard de Blondel', 'Cave', '44000 Nantes', 22);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (51, 'Chez Lemoine', 'Marseille', 'boulevard Hebert', 'Brasserie', '13001 Marseille', 86);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (52, 'Chez Jacquot', 'Marseille', 'avenue Benoît Hoarau', 'Manoir', '13001 Marseille', 75);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (53, 'Chez Merle', 'Bordeaux', '68, rue de Blondel', 'Cave', '33000 Bordeaux', 48);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (54, 'Chez Grondin', 'Nantes', '81, avenue Texier', 'Sous-sol secret', '44000 Nantes', 6);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (55, 'Chez Guérin', 'Marseille', '786, rue de Gaudin', 'Sous-sol secret', '13001 Marseille', 123);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (56, 'Chez Lemoine', 'Marseille', 'boulevard Laine', 'Sous-sol secret', '13001 Marseille', 156);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (57, 'Chez Guyon', 'Nantes', 'chemin Maurice Coulon', 'Sous-sol secret', '44000 Nantes', 30);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (58, 'Chez Grégoire', 'Reims', '4, avenue de Weber', 'Salle privée', '51100 Reims', 44);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (59, 'Chez Fleury', 'Paris', 'avenue Berger', 'Salle privée', '75001 Paris', 6);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (60, 'Chez Rolland', 'Toulouse', 'rue Jules Guibert', 'Salle privée', '31000 Toulouse', 152);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (61, 'Chez Fabre', 'Rennes', '64, boulevard Bazin', 'Sous-sol secret', '35000 Rennes', 195);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (62, 'Chez Lecomte', 'Paris', '58, boulevard Sébastien Boucher', 'Manoir', '75001 Paris', 174);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (63, 'Chez Baron', 'Marseille', '77, chemin Étienne Alexandre', 'Salle privée', '13001 Marseille', 59);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (64, 'Chez Weiss', 'Lyon', '854, rue Millet', 'Salle privée', '69001 Lyon', 195);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (65, 'Chez Alexandre', 'Lyon', '38, chemin de Lecomte', 'Manoir', '69001 Lyon', 1);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (66, 'Chez Guichard', 'Lille', '54, rue de Courtois', 'Manoir', '59000 Lille', 88);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (67, 'Chez Humbert', 'Strasbourg', '22, chemin de Martineau', 'Salle privée', '67000 Strasbourg', 135);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (68, 'Chez Petit', 'Nantes', '46, avenue de Guérin', 'Cave', '44000 Nantes', 89);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (69, 'Chez Charrier', 'Nice', '86, chemin Perrier', 'Cave', '06000 Nice', 126);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (70, 'Chez Faure', 'Nice', 'chemin Corinne Couturier', 'Cave', '06000 Nice', 158);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (71, 'Chez Rodrigues', 'Paris', '8, boulevard Amélie Pinto', 'Sous-sol secret', '75001 Paris', 31);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (72, 'Chez Maurice', 'Nantes', '1, chemin Dias', 'Cave', '44000 Nantes', 86);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (73, 'Chez Muller', 'Lyon', '2, avenue Pruvost', 'Manoir', '69001 Lyon', 156);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (74, 'Chez Leconte', 'Nantes', '243, rue Lefort', 'Brasserie', '44000 Nantes', 42);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (75, 'Chez Benard', 'Reims', '91, chemin Thérèse Dijoux', 'Brasserie', '51100 Reims', 28);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (76, 'Chez Tessier', 'Paris', 'boulevard de Bertrand', 'Manoir', '75001 Paris', 115);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (77, 'Chez Didier', 'Paris', 'chemin Laetitia Morin', 'Sous-sol secret', '75001 Paris', 168);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (78, 'Chez Lucas', 'Paris', '44, chemin Josette Pottier', 'Cave', '75001 Paris', 171);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (79, 'Chez Boucher', 'Lyon', 'chemin Paulette Torres', 'Sous-sol secret', '69001 Lyon', 134);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (80, 'Chez Bernier', 'Marseille', '265, avenue Anne Delmas', 'Sous-sol secret', '13001 Marseille', 202);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (81, 'Chez Collin', 'Marseille', '803, avenue Reynaud', 'Brasserie', '13001 Marseille', 171);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (82, 'Chez Mahe', 'Lille', 'rue de Allard', 'Salle privée', '59000 Lille', 151);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (83, 'Chez Clerc', 'Nice', 'avenue Pierre', 'Manoir', '06000 Nice', 129);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (84, 'Chez Berger', 'Lille', '62, rue Frédéric Pons', 'Salle privée', '59000 Lille', 88);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (85, 'Chez Huet', 'Paris', '63, rue André Boulay', 'Sous-sol secret', '75001 Paris', 73);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (86, 'Chez Rossi', 'Marseille', '62, avenue Texier', 'Brasserie', '13001 Marseille', 27);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (87, 'Chez Lemoine', 'Paris', 'chemin Laure Langlois', 'Salle privée', '75001 Paris', 162);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (88, 'Chez Le Roux', 'Rennes', '306, avenue de Lebrun', 'Sous-sol secret', '35000 Rennes', 188);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (89, 'Chez Lelièvre', 'Montpellier', '9, chemin Margot Hebert', 'Sous-sol secret', '34000 Montpellier', 122);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (90, 'Chez Samson', 'Lyon', '14, chemin de Joseph', 'Salle privée', '69001 Lyon', 72);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (91, 'Chez Royer', 'Toulouse', '101, boulevard Louis Dupuy', 'Salle privée', '31000 Toulouse', 119);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (92, 'Chez Philippe', 'Toulouse', '3, rue de Pascal', 'Manoir', '31000 Toulouse', 2);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (93, 'Chez De Oliveira', 'Bordeaux', '571, rue Luce Carpentier', 'Manoir', '33000 Bordeaux', 31);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (94, 'Chez Gonzalez', 'Marseille', '16, rue de Nicolas', 'Cave', '13001 Marseille', 50);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (95, 'Chez Benard', 'Paris', '25, rue Langlois', 'Brasserie', '75001 Paris', 78);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (96, 'Chez Gérard', 'Bordeaux', '3, chemin Ollivier', 'Sous-sol secret', '33000 Bordeaux', 92);
+INSERT INTO Restaurant (idRe, nom, ville, adresse, type, lieu, idCu) VALUES (97, 'Chez Parent', 'Strasbourg', 'rue Roger', 'Brasserie', '67000 Strasbourg', 191);
+
+--
+-- EST_COMPOSE_DE (REPAS x PLAT) MODIF Q11 
+
+INSERT INTO Est_Compose_De (idR, idP) VALUES (1, 1);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (2, 2);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (39541, 27770);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (23395, 18560);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (42982, 21727);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (41038, 4305);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (59990, 12022);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (4096, 3776);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (28344, 22809);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (9216, 6927);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (28001, 16426);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (22619, 11129);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (56356, 16297);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (72939, 22518);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (69152, 19814);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (45913, 29368);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (51384, 15134);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (62684, 26952);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (63777, 5417);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (70771, 27100);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (45405, 14389);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (9740, 8276);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (11602, 11930);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (810, 24445);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (27584, 3277);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (78985, 19947);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (12023, 23348);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (67096, 16895);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (33086, 23447);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (52384, 15165);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (66118, 18824);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (22038, 23930);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (13408, 16961);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (47794, 15441);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (17458, 26062);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (14655, 7275);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (13935, 24406);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (43751, 3238);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (62252, 9163);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (48328, 2948);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (62337, 5849);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (29896, 14949);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (15055, 10185);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (45507, 25119);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (35459, 19939);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (55384, 19042);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (78112, 21117);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (56185, 29992);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (20039, 9789);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (58774, 8253);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (30002, 3957);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (62023, 24680);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (69041, 619);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (483, 28199);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (76932, 786);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (57421, 13150);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (31955, 16942);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (44087, 3676);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (691, 5252);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (18786, 4521);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (23930, 10918);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (43474, 14536);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (65035, 7239);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (30580, 11485);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (45134, 16300);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (7009, 26131);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (4015, 88);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (45018, 11229);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (66971, 10331);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (21008, 802);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (14592, 5609);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (14710, 5544);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (9802, 8601);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (32201, 2570);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (59157, 1885);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (9596, 17360);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (11741, 18737);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (22118, 27947);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (79372, 3658);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (24132, 1402);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (3238, 23363);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (10214, 29318);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (43037, 20079);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (14980, 21961);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (76530, 16143);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (30976, 924);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (1708, 1453);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (34620, 5992);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (75195, 25132);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (8739, 22659);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (65000, 17451);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (41448, 24454);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (25467, 13514);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (11459, 13281);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (11800, 28868);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (23775, 19711);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (11019, 5651);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (15310, 27526);
+INSERT INTO Est_Compose_De (idR, idP) VALUES (35824, 20917);
+
+-- EST_CONSTITUE (REPAS x RACLETTE)
+
+INSERT INTO Est_Constitue (idR, idRa) VALUES (21, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (22, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (23, 5);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (24, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (25, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (26, 5);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (27, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (28, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (29, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (30, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (31, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (32, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (33, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (34, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (35, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (36, 9);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (37, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (38, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (39, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (40, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (41, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (42, 5);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (43, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (44, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (45, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (46, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (47, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (48, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (49, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (50, 5);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (51, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (52, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (53, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (54, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (55, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (56, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (57, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (58, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (59, 9);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (60, 5);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (61, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (62, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (63, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (64, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (65, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (66, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (67, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (68, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (69, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (70, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (71, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (72, 9);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (73, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (74, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (75, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (76, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (77, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (78, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (79, 9);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (80, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (81, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (82, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (83, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (84, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (85, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (86, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (87, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (88, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (89, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (90, 5);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (91, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (92, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (93, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (94, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (95, 6);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (96, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (97, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (98, 8);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (99, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (100, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (101, 9);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (102, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (103, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (104, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (105, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (106, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (107, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (108, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (109, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (110, 9);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (111, 2);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (112, 10);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (113, 4);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (114, 7);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (115, 3);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (116, 1);
+INSERT INTO Est_Constitue (idR, idRa) VALUES (117, 3);
+
+-- PROVOQUE (ALIMENT x ALLERGIE)
+
+
+INSERT INTO Provoque (idAli, idAll) VALUES (1, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (2, 19);
+INSERT INTO Provoque (idAli, idAll) VALUES (2, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (3, 18);
+INSERT INTO Provoque (idAli, idAll) VALUES (3, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (4, 19);
+INSERT INTO Provoque (idAli, idAll) VALUES (4, 2);
+INSERT INTO Provoque (idAli, idAll) VALUES (4, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (4, 8);
+INSERT INTO Provoque (idAli, idAll) VALUES (5, 6);
+INSERT INTO Provoque (idAli, idAll) VALUES (6, 9);
+INSERT INTO Provoque (idAli, idAll) VALUES (6, 14);
+INSERT INTO Provoque (idAli, idAll) VALUES (6, 11);
+INSERT INTO Provoque (idAli, idAll) VALUES (7, 8);
+INSERT INTO Provoque (idAli, idAll) VALUES (7, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (7, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (7, 13);
+INSERT INTO Provoque (idAli, idAll) VALUES (8, 1);
+INSERT INTO Provoque (idAli, idAll) VALUES (8, 12);
+INSERT INTO Provoque (idAli, idAll) VALUES (9, 2);
+INSERT INTO Provoque (idAli, idAll) VALUES (9, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (9, 9);
+INSERT INTO Provoque (idAli, idAll) VALUES (10, 12);
+INSERT INTO Provoque (idAli, idAll) VALUES (10, 2);
+INSERT INTO Provoque (idAli, idAll) VALUES (11, 17);
+INSERT INTO Provoque (idAli, idAll) VALUES (11, 16);
+INSERT INTO Provoque (idAli, idAll) VALUES (11, 11);
+INSERT INTO Provoque (idAli, idAll) VALUES (12, 16);
+INSERT INTO Provoque (idAli, idAll) VALUES (12, 3);
+INSERT INTO Provoque (idAli, idAll) VALUES (12, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (12, 14);
+INSERT INTO Provoque (idAli, idAll) VALUES (13, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (14, 19);
+INSERT INTO Provoque (idAli, idAll) VALUES (14, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (15, 6);
+INSERT INTO Provoque (idAli, idAll) VALUES (15, 14);
+INSERT INTO Provoque (idAli, idAll) VALUES (15, 17);
+INSERT INTO Provoque (idAli, idAll) VALUES (15, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (16, 19);
+INSERT INTO Provoque (idAli, idAll) VALUES (16, 16);
+INSERT INTO Provoque (idAli, idAll) VALUES (17, 6);
+INSERT INTO Provoque (idAli, idAll) VALUES (17, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (17, 16);
+INSERT INTO Provoque (idAli, idAll) VALUES (18, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (18, 19);
+INSERT INTO Provoque (idAli, idAll) VALUES (18, 12);
+INSERT INTO Provoque (idAli, idAll) VALUES (18, 3);
+INSERT INTO Provoque (idAli, idAll) VALUES (19, 7);
+INSERT INTO Provoque (idAli, idAll) VALUES (19, 2);
+INSERT INTO Provoque (idAli, idAll) VALUES (20, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (20, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (21, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (21, 1);
+INSERT INTO Provoque (idAli, idAll) VALUES (22, 16);
+INSERT INTO Provoque (idAli, idAll) VALUES (22, 1);
+INSERT INTO Provoque (idAli, idAll) VALUES (22, 14);
+INSERT INTO Provoque (idAli, idAll) VALUES (23, 17);
+INSERT INTO Provoque (idAli, idAll) VALUES (24, 8);
+INSERT INTO Provoque (idAli, idAll) VALUES (24, 6);
+INSERT INTO Provoque (idAli, idAll) VALUES (25, 3);
+INSERT INTO Provoque (idAli, idAll) VALUES (25, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (26, 13);
+INSERT INTO Provoque (idAli, idAll) VALUES (27, 3);
+INSERT INTO Provoque (idAli, idAll) VALUES (27, 13);
+INSERT INTO Provoque (idAli, idAll) VALUES (27, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (27, 4);
+INSERT INTO Provoque (idAli, idAll) VALUES (28, 17);
+INSERT INTO Provoque (idAli, idAll) VALUES (28, 10);
+INSERT INTO Provoque (idAli, idAll) VALUES (29, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (30, 12);
+INSERT INTO Provoque (idAli, idAll) VALUES (31, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (31, 14);
+INSERT INTO Provoque (idAli, idAll) VALUES (31, 13);
+INSERT INTO Provoque (idAli, idAll) VALUES (32, 17);
+INSERT INTO Provoque (idAli, idAll) VALUES (33, 10);
+INSERT INTO Provoque (idAli, idAll) VALUES (33, 13);
+INSERT INTO Provoque (idAli, idAll) VALUES (33, 4);
+INSERT INTO Provoque (idAli, idAll) VALUES (33, 8);
+INSERT INTO Provoque (idAli, idAll) VALUES (34, 7);
+INSERT INTO Provoque (idAli, idAll) VALUES (34, 4);
+INSERT INTO Provoque (idAli, idAll) VALUES (35, 9);
+INSERT INTO Provoque (idAli, idAll) VALUES (35, 1);
+INSERT INTO Provoque (idAli, idAll) VALUES (35, 5);
+INSERT INTO Provoque (idAli, idAll) VALUES (35, 13);
+INSERT INTO Provoque (idAli, idAll) VALUES (36, 4);
+INSERT INTO Provoque (idAli, idAll) VALUES (36, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (37, 16);
+INSERT INTO Provoque (idAli, idAll) VALUES (37, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (37, 14);
+INSERT INTO Provoque (idAli, idAll) VALUES (38, 12);
+INSERT INTO Provoque (idAli, idAll) VALUES (39, 20);
+INSERT INTO Provoque (idAli, idAll) VALUES (39, 6);
+INSERT INTO Provoque (idAli, idAll) VALUES (40, 15);
+INSERT INTO Provoque (idAli, idAll) VALUES (40, 18);
+
+
+-- EST_ACCOMPAGNE_DE (PLAT x SAUCE) modif q17 
+
+-- Plat 3 (Tenders Frits Classiques) → 4 sauces
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (3, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (3, 2);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (3, 3);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (3, 4);
+
+-- Plat 7 (Kebab Maison) → 5 sauces
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (7, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (7, 2);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (7, 3);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (7, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (7, 6);
+
+-- Plat 9 (Burger Tenrac) → 4 sauces
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (9, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (9, 4);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (9, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (9, 6);
+
+-- Plat 18 (Wrap Poulet Caesar) → 4 sauces
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (18, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (18, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (18, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (18, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (2, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (2, 14);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (4, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (4, 14);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (5, 3);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (5, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (6, 14);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (8, 4);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (8, 11);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (11, 11);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (11, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (15, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (15, 15);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (15, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (16, 12);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (16, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (16, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (18, 17);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (19, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (19, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (21, 2);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (21, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (23, 12);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (23, 2);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (23, 20);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (27, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (27, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (28, 4);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (28, 13);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (28, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (29, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (29, 3);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (30, 3);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (30, 14);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (30, 9);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (32, 9);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (33, 4);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (33, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (35, 15);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (36, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (39, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (42, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (46, 3);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (47, 20);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (48, 11);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (49, 2);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (52, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (53, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (53, 11);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (53, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (54, 13);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (54, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (54, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (56, 17);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (56, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (59, 15);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (59, 16);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (59, 19);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (62, 10);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (63, 12);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (64, 15);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (64, 18);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (65, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (65, 4);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (66, 4);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (66, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (67, 17);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (67, 16);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (69, 19);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (69, 12);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (69, 15);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (70, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (70, 18);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (71, 19);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (71, 16);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (74, 19);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (74, 13);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (74, 5);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (76, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (76, 12);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (76, 13);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (77, 20);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (77, 9);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (83, 11);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (84, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (84, 16);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (86, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (86, 17);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (87, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (87, 9);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (88, 11);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (88, 1);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (90, 8);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (94, 7);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (94, 16);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (95, 6);
+INSERT INTO Est_Accompagne_De (idP, idS) VALUES (96, 2);
+
+-- COMMANDE (GROUPE_TENRAC x REPAS)
+
+INSERT INTO Commande (idT, idR) VALUES (20975, 48927);
+INSERT INTO Commande (idT, idR) VALUES (7314, 50695);
+INSERT INTO Commande (idT, idR) VALUES (11196, 54824);
+INSERT INTO Commande (idT, idR) VALUES (2318, 28177);
+INSERT INTO Commande (idT, idR) VALUES (22696, 36156);
+INSERT INTO Commande (idT, idR) VALUES (22324, 49935);
+INSERT INTO Commande (idT, idR) VALUES (23233, 8376);
+INSERT INTO Commande (idT, idR) VALUES (11769, 1104);
+INSERT INTO Commande (idT, idR) VALUES (11810, 62468);
+INSERT INTO Commande (idT, idR) VALUES (8668, 71258);
+INSERT INTO Commande (idT, idR) VALUES (38850, 22724);
+INSERT INTO Commande (idT, idR) VALUES (30598, 9268);
+INSERT INTO Commande (idT, idR) VALUES (6802, 76942);
+INSERT INTO Commande (idT, idR) VALUES (40266, 71615);
+INSERT INTO Commande (idT, idR) VALUES (48568, 42851);
+INSERT INTO Commande (idT, idR) VALUES (49452, 78111);
+INSERT INTO Commande (idT, idR) VALUES (5288, 67094);
+INSERT INTO Commande (idT, idR) VALUES (40309, 76361);
+INSERT INTO Commande (idT, idR) VALUES (14908, 36337);
+INSERT INTO Commande (idT, idR) VALUES (40244, 7072);
+INSERT INTO Commande (idT, idR) VALUES (24837, 61703);
+INSERT INTO Commande (idT, idR) VALUES (40591, 3475);
+INSERT INTO Commande (idT, idR) VALUES (15258, 55748);
+INSERT INTO Commande (idT, idR) VALUES (23588, 15117);
+INSERT INTO Commande (idT, idR) VALUES (18089, 14553);
+INSERT INTO Commande (idT, idR) VALUES (19588, 41222);
+INSERT INTO Commande (idT, idR) VALUES (38554, 67501);
+INSERT INTO Commande (idT, idR) VALUES (44149, 72472);
+INSERT INTO Commande (idT, idR) VALUES (7231, 52760);
+INSERT INTO Commande (idT, idR) VALUES (9411, 57985);
+INSERT INTO Commande (idT, idR) VALUES (11994, 7551);
+INSERT INTO Commande (idT, idR) VALUES (49091, 77148);
+INSERT INTO Commande (idT, idR) VALUES (37266, 681);
+INSERT INTO Commande (idT, idR) VALUES (38963, 4722);
+INSERT INTO Commande (idT, idR) VALUES (6160, 27711);
+INSERT INTO Commande (idT, idR) VALUES (26460, 57531);
+INSERT INTO Commande (idT, idR) VALUES (27318, 31353);
+INSERT INTO Commande (idT, idR) VALUES (8535, 41853);
+INSERT INTO Commande (idT, idR) VALUES (36485, 74958);
+INSERT INTO Commande (idT, idR) VALUES (4941, 73366);
+INSERT INTO Commande (idT, idR) VALUES (9919, 22139);
+INSERT INTO Commande (idT, idR) VALUES (24150, 26540);
+INSERT INTO Commande (idT, idR) VALUES (8992, 56971);
+INSERT INTO Commande (idT, idR) VALUES (11813, 10535);
+INSERT INTO Commande (idT, idR) VALUES (1464, 6494);
+INSERT INTO Commande (idT, idR) VALUES (15079, 32071);
+INSERT INTO Commande (idT, idR) VALUES (21861, 78189);
+INSERT INTO Commande (idT, idR) VALUES (8864, 46889);
+INSERT INTO Commande (idT, idR) VALUES (49275, 16412);
+INSERT INTO Commande (idT, idR) VALUES (7669, 59409);
+INSERT INTO Commande (idT, idR) VALUES (6235, 34083);
+INSERT INTO Commande (idT, idR) VALUES (29784, 43921);
+INSERT INTO Commande (idT, idR) VALUES (1480, 52840);
+INSERT INTO Commande (idT, idR) VALUES (5772, 47428);
+INSERT INTO Commande (idT, idR) VALUES (2823, 71112);
+INSERT INTO Commande (idT, idR) VALUES (12212, 26593);
+INSERT INTO Commande (idT, idR) VALUES (31114, 79174);
+INSERT INTO Commande (idT, idR) VALUES (46238, 77568);
+INSERT INTO Commande (idT, idR) VALUES (14073, 38321);
+INSERT INTO Commande (idT, idR) VALUES (20771, 53734);
+INSERT INTO Commande (idT, idR) VALUES (12226, 21739);
+INSERT INTO Commande (idT, idR) VALUES (45546, 11823);
+INSERT INTO Commande (idT, idR) VALUES (42263, 52917);
+INSERT INTO Commande (idT, idR) VALUES (13643, 65264);
+INSERT INTO Commande (idT, idR) VALUES (55, 76398);
+INSERT INTO Commande (idT, idR) VALUES (40458, 41313);
+INSERT INTO Commande (idT, idR) VALUES (19735, 8582);
+INSERT INTO Commande (idT, idR) VALUES (511, 46234);
+INSERT INTO Commande (idT, idR) VALUES (29575, 26409);
+INSERT INTO Commande (idT, idR) VALUES (48095, 19680);
+INSERT INTO Commande (idT, idR) VALUES (1573, 29218);
+INSERT INTO Commande (idT, idR) VALUES (9275, 10208);
+INSERT INTO Commande (idT, idR) VALUES (10108, 60918);
+INSERT INTO Commande (idT, idR) VALUES (38639, 65961);
+INSERT INTO Commande (idT, idR) VALUES (1314, 70663);
+INSERT INTO Commande (idT, idR) VALUES (33072, 76620);
+INSERT INTO Commande (idT, idR) VALUES (18634, 22464);
+INSERT INTO Commande (idT, idR) VALUES (12421, 13742);
+INSERT INTO Commande (idT, idR) VALUES (36347, 20982);
+INSERT INTO Commande (idT, idR) VALUES (32584, 53785);
+INSERT INTO Commande (idT, idR) VALUES (19936, 21080);
+INSERT INTO Commande (idT, idR) VALUES (48517, 42957);
+INSERT INTO Commande (idT, idR) VALUES (49805, 27138);
+INSERT INTO Commande (idT, idR) VALUES (9970, 7233);
+INSERT INTO Commande (idT, idR) VALUES (24280, 22045);
+INSERT INTO Commande (idT, idR) VALUES (15776, 53906);
+INSERT INTO Commande (idT, idR) VALUES (21365, 11313);
+INSERT INTO Commande (idT, idR) VALUES (45588, 27582);
+INSERT INTO Commande (idT, idR) VALUES (40626, 3430);
+INSERT INTO Commande (idT, idR) VALUES (45875, 78200);
+INSERT INTO Commande (idT, idR) VALUES (20611, 40125);
+INSERT INTO Commande (idT, idR) VALUES (27292, 33030);
+INSERT INTO Commande (idT, idR) VALUES (49963, 30150);
+INSERT INTO Commande (idT, idR) VALUES (5898, 40302);
+INSERT INTO Commande (idT, idR) VALUES (17437, 47709);
+INSERT INTO Commande (idT, idR) VALUES (8827, 28575);
+INSERT INTO Commande (idT, idR) VALUES (49618, 28875);
+
+-- FEDERE (ORDRE_TENRAC x CLUB_TENRAC)
+
+-- VALIDE (TENRAC x MACHINE)
+
+INSERT INTO Valide (idT, idM) VALUES (34654, 2);
+INSERT INTO Valide (idT, idM) VALUES (10275, 13);
+INSERT INTO Valide (idT, idM) VALUES (24871, 17);
+INSERT INTO Valide (idT, idM) VALUES (35060, 1);
+INSERT INTO Valide (idT, idM) VALUES (22968, 3);
+INSERT INTO Valide (idT, idM) VALUES (22483, 16);
+INSERT INTO Valide (idT, idM) VALUES (5976, 9);
+INSERT INTO Valide (idT, idM) VALUES (27888, 8);
+INSERT INTO Valide (idT, idM) VALUES (49435, 3);
+INSERT INTO Valide (idT, idM) VALUES (7411, 14);
+INSERT INTO Valide (idT, idM) VALUES (29701, 7);
+INSERT INTO Valide (idT, idM) VALUES (30273, 7);
+INSERT INTO Valide (idT, idM) VALUES (4483, 19);
+INSERT INTO Valide (idT, idM) VALUES (25981, 15);
+INSERT INTO Valide (idT, idM) VALUES (47487, 2);
+INSERT INTO Valide (idT, idM) VALUES (39595, 2);
+INSERT INTO Valide (idT, idM) VALUES (14046, 17);
+INSERT INTO Valide (idT, idM) VALUES (22310, 8);
+INSERT INTO Valide (idT, idM) VALUES (6017, 20);
+INSERT INTO Valide (idT, idM) VALUES (34592, 8);
+INSERT INTO Valide (idT, idM) VALUES (2622, 16);
+INSERT INTO Valide (idT, idM) VALUES (5652, 12);
+INSERT INTO Valide (idT, idM) VALUES (27709, 1);
+INSERT INTO Valide (idT, idM) VALUES (33807, 2);
+INSERT INTO Valide (idT, idM) VALUES (21521, 7);
+INSERT INTO Valide (idT, idM) VALUES (9618, 20);
+INSERT INTO Valide (idT, idM) VALUES (14923, 2);
+INSERT INTO Valide (idT, idM) VALUES (17415, 2);
+INSERT INTO Valide (idT, idM) VALUES (3484, 5);
+INSERT INTO Valide (idT, idM) VALUES (31225, 19);
+INSERT INTO Valide (idT, idM) VALUES (41159, 10);
+INSERT INTO Valide (idT, idM) VALUES (38540, 1);
+INSERT INTO Valide (idT, idM) VALUES (49275, 15);
+INSERT INTO Valide (idT, idM) VALUES (40635, 6);
+INSERT INTO Valide (idT, idM) VALUES (22371, 13);
+INSERT INTO Valide (idT, idM) VALUES (35315, 14);
+INSERT INTO Valide (idT, idM) VALUES (2146, 5);
+INSERT INTO Valide (idT, idM) VALUES (9096, 9);
+INSERT INTO Valide (idT, idM) VALUES (5976, 14);
+INSERT INTO Valide (idT, idM) VALUES (35251, 4);
+INSERT INTO Valide (idT, idM) VALUES (11151, 9);
+INSERT INTO Valide (idT, idM) VALUES (20572, 11);
+INSERT INTO Valide (idT, idM) VALUES (2593, 19);
+INSERT INTO Valide (idT, idM) VALUES (7411, 11);
+INSERT INTO Valide (idT, idM) VALUES (49929, 12);
+INSERT INTO Valide (idT, idM) VALUES (17860, 13);
+INSERT INTO Valide (idT, idM) VALUES (41410, 3);
+INSERT INTO Valide (idT, idM) VALUES (6283, 8);
+INSERT INTO Valide (idT, idM) VALUES (16447, 15);
+INSERT INTO Valide (idT, idM) VALUES (47671, 8);
+INSERT INTO Valide (idT, idM) VALUES (5837, 16);
+INSERT INTO Valide (idT, idM) VALUES (26460, 4);
+INSERT INTO Valide (idT, idM) VALUES (17144, 1);
+INSERT INTO Valide (idT, idM) VALUES (14208, 7);
+INSERT INTO Valide (idT, idM) VALUES (41652, 7);
+INSERT INTO Valide (idT, idM) VALUES (19005, 3);
+INSERT INTO Valide (idT, idM) VALUES (33714, 16);
+INSERT INTO Valide (idT, idM) VALUES (24699, 8);
+INSERT INTO Valide (idT, idM) VALUES (20472, 16);
+INSERT INTO Valide (idT, idM) VALUES (20219, 5);
+INSERT INTO Valide (idT, idM) VALUES (48473, 14);
+INSERT INTO Valide (idT, idM) VALUES (18772, 16);
+INSERT INTO Valide (idT, idM) VALUES (10686, 8);
+INSERT INTO Valide (idT, idM) VALUES (41607, 20);
+INSERT INTO Valide (idT, idM) VALUES (28870, 11);
+INSERT INTO Valide (idT, idM) VALUES (34052, 20);
+INSERT INTO Valide (idT, idM) VALUES (33904, 10);
+INSERT INTO Valide (idT, idM) VALUES (30100, 7);
+INSERT INTO Valide (idT, idM) VALUES (22310, 6);
+INSERT INTO Valide (idT, idM) VALUES (2237, 10);
+INSERT INTO Valide (idT, idM) VALUES (45493, 5);
+INSERT INTO Valide (idT, idM) VALUES (18345, 2);
+INSERT INTO Valide (idT, idM) VALUES (49606, 19);
+INSERT INTO Valide (idT, idM) VALUES (23533, 20);
+INSERT INTO Valide (idT, idM) VALUES (49780, 2);
+INSERT INTO Valide (idT, idM) VALUES (43517, 15);
+INSERT INTO Valide (idT, idM) VALUES (22809, 12);
+INSERT INTO Valide (idT, idM) VALUES (36781, 8);
+INSERT INTO Valide (idT, idM) VALUES (2005, 16);
+INSERT INTO Valide (idT, idM) VALUES (22448, 2);
+INSERT INTO Valide (idT, idM) VALUES (48952, 6);
+INSERT INTO Valide (idT, idM) VALUES (40686, 10);
+INSERT INTO Valide (idT, idM) VALUES (47599, 1);
+INSERT INTO Valide (idT, idM) VALUES (38016, 13);
+INSERT INTO Valide (idT, idM) VALUES (25306, 7);
+INSERT INTO Valide (idT, idM) VALUES (14133, 1);
+INSERT INTO Valide (idT, idM) VALUES (31859, 18);
+INSERT INTO Valide (idT, idM) VALUES (43040, 2);
+INSERT INTO Valide (idT, idM) VALUES (33810, 1);
+INSERT INTO Valide (idT, idM) VALUES (13721, 14);
+INSERT INTO Valide (idT, idM) VALUES (7411, 13);
+INSERT INTO Valide (idT, idM) VALUES (6730, 11);
+INSERT INTO Valide (idT, idM) VALUES (8794, 8);
+INSERT INTO Valide (idT, idM) VALUES (14923, 7);
+INSERT INTO Valide (idT, idM) VALUES (41938, 15);
+INSERT INTO Valide (idT, idM) VALUES (25027, 17);
+INSERT INTO Valide (idT, idM) VALUES (44814, 20);
+
+-- A (CERTIFICAT x HISTORIQUE)
+
+-- EST_CONSIGNE_DANS (MACHINE x REGISTRE)
+
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (7, 34365);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (10, 28610);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (18, 26815);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (10, 6309);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (17, 71366);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (5, 85185);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (1, 41589);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (6, 67826);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 51222);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (19, 15593);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (11, 13525);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 65231);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (19, 92585);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (11, 88469);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (8, 42955);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (18, 5141);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (19, 96974);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (6, 22989);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (13, 29518);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (2, 33803);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 35753);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (19, 19643);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (20, 20909);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 79895);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (10, 61827);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 17070);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 8664);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (15, 36139);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (16, 48947);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (1, 64651);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (5, 7265);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 87508);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (17, 70014);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 68820);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (4, 83982);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (10, 1494);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (19, 65160);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 16129);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (14, 49898);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 91249);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (8, 55826);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (17, 20760);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (1, 30681);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (4, 35835);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (16, 10426);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (1, 19492);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 79913);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (18, 28702);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (4, 92550);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (15, 17671);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (5, 28565);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (8, 61215);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (20, 61756);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (15, 88699);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 418);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (7, 30562);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (10, 24733);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (19, 56819);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (4, 99471);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (20, 58552);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (20, 62950);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (10, 26664);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (13, 506);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (17, 82354);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (6, 83089);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (15, 24131);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (7, 31668);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 45067);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 41220);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (13, 69047);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (20, 34743);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 59607);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 65102);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (5, 80255);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (7, 56165);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (13, 37526);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 70068);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 78789);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (9, 52696);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 29375);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 74340);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (4, 3810);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (5, 7495);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (16, 36907);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (6, 27514);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (8, 79105);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 92958);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (12, 90746);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (5, 26481);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (18, 57643);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (7, 31181);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 50546);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (20, 17802);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (13, 52884);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 15132);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (3, 47607);
+INSERT INTO Est_Consigne_Dans (idM, idReg) VALUES (6, 93966);
+
+-- SERT (REPAS x CUISINIER)
+
+INSERT INTO Sert (idR, idCu) VALUES (60432, 109);
+INSERT INTO Sert (idR, idCu) VALUES (35326, 100);
+INSERT INTO Sert (idR, idCu) VALUES (26252, 133);
+INSERT INTO Sert (idR, idCu) VALUES (48350, 94);
+INSERT INTO Sert (idR, idCu) VALUES (73127, 39);
+INSERT INTO Sert (idR, idCu) VALUES (44194, 116);
+INSERT INTO Sert (idR, idCu) VALUES (40325, 51);
+INSERT INTO Sert (idR, idCu) VALUES (19983, 4);
+INSERT INTO Sert (idR, idCu) VALUES (56795, 68);
+INSERT INTO Sert (idR, idCu) VALUES (39817, 170);
+INSERT INTO Sert (idR, idCu) VALUES (29450, 164);
+INSERT INTO Sert (idR, idCu) VALUES (72286, 70);
+INSERT INTO Sert (idR, idCu) VALUES (69922, 12);
+INSERT INTO Sert (idR, idCu) VALUES (19520, 203);
+INSERT INTO Sert (idR, idCu) VALUES (17323, 193);
+INSERT INTO Sert (idR, idCu) VALUES (54584, 126);
+INSERT INTO Sert (idR, idCu) VALUES (33545, 181);
+INSERT INTO Sert (idR, idCu) VALUES (12964, 87);
+INSERT INTO Sert (idR, idCu) VALUES (62840, 112);
+INSERT INTO Sert (idR, idCu) VALUES (52524, 201);
+INSERT INTO Sert (idR, idCu) VALUES (19509, 31);
+INSERT INTO Sert (idR, idCu) VALUES (38303, 135);
+INSERT INTO Sert (idR, idCu) VALUES (18988, 88);
+INSERT INTO Sert (idR, idCu) VALUES (61489, 76);
+INSERT INTO Sert (idR, idCu) VALUES (33501, 162);
+INSERT INTO Sert (idR, idCu) VALUES (58416, 159);
+INSERT INTO Sert (idR, idCu) VALUES (62960, 196);
+INSERT INTO Sert (idR, idCu) VALUES (4082, 14);
+INSERT INTO Sert (idR, idCu) VALUES (22396, 127);
+INSERT INTO Sert (idR, idCu) VALUES (5378, 92);
+INSERT INTO Sert (idR, idCu) VALUES (40769, 1);
+INSERT INTO Sert (idR, idCu) VALUES (32025, 35);
+INSERT INTO Sert (idR, idCu) VALUES (53601, 179);
+INSERT INTO Sert (idR, idCu) VALUES (49149, 7);
+INSERT INTO Sert (idR, idCu) VALUES (13392, 170);
+INSERT INTO Sert (idR, idCu) VALUES (17535, 5);
+INSERT INTO Sert (idR, idCu) VALUES (24949, 31);
+INSERT INTO Sert (idR, idCu) VALUES (76656, 164);
+INSERT INTO Sert (idR, idCu) VALUES (76078, 53);
+INSERT INTO Sert (idR, idCu) VALUES (71563, 62);
+INSERT INTO Sert (idR, idCu) VALUES (28944, 188);
+INSERT INTO Sert (idR, idCu) VALUES (57203, 15);
+INSERT INTO Sert (idR, idCu) VALUES (43838, 111);
+INSERT INTO Sert (idR, idCu) VALUES (34418, 82);
+INSERT INTO Sert (idR, idCu) VALUES (38377, 147);
+INSERT INTO Sert (idR, idCu) VALUES (909, 64);
+INSERT INTO Sert (idR, idCu) VALUES (79116, 167);
+INSERT INTO Sert (idR, idCu) VALUES (17981, 79);
+INSERT INTO Sert (idR, idCu) VALUES (21986, 182);
+INSERT INTO Sert (idR, idCu) VALUES (25821, 137);
+INSERT INTO Sert (idR, idCu) VALUES (17686, 30);
+INSERT INTO Sert (idR, idCu) VALUES (11092, 153);
+INSERT INTO Sert (idR, idCu) VALUES (11352, 10);
+INSERT INTO Sert (idR, idCu) VALUES (64162, 47);
+INSERT INTO Sert (idR, idCu) VALUES (56956, 111);
+INSERT INTO Sert (idR, idCu) VALUES (5332, 201);
+INSERT INTO Sert (idR, idCu) VALUES (22239, 159);
+INSERT INTO Sert (idR, idCu) VALUES (20119, 146);
+INSERT INTO Sert (idR, idCu) VALUES (56902, 174);
+INSERT INTO Sert (idR, idCu) VALUES (58275, 37);
+INSERT INTO Sert (idR, idCu) VALUES (26293, 83);
+INSERT INTO Sert (idR, idCu) VALUES (14201, 30);
+INSERT INTO Sert (idR, idCu) VALUES (19199, 99);
+INSERT INTO Sert (idR, idCu) VALUES (20872, 94);
+INSERT INTO Sert (idR, idCu) VALUES (13119, 112);
+INSERT INTO Sert (idR, idCu) VALUES (40144, 156);
+INSERT INTO Sert (idR, idCu) VALUES (34869, 91);
+INSERT INTO Sert (idR, idCu) VALUES (50046, 169);
+INSERT INTO Sert (idR, idCu) VALUES (63994, 19);
+INSERT INTO Sert (idR, idCu) VALUES (74792, 27);
+INSERT INTO Sert (idR, idCu) VALUES (37042, 20);
+INSERT INTO Sert (idR, idCu) VALUES (74839, 196);
+INSERT INTO Sert (idR, idCu) VALUES (62797, 198);
+INSERT INTO Sert (idR, idCu) VALUES (15714, 158);
+INSERT INTO Sert (idR, idCu) VALUES (54802, 43);
+INSERT INTO Sert (idR, idCu) VALUES (51502, 59);
+INSERT INTO Sert (idR, idCu) VALUES (39484, 205);
+INSERT INTO Sert (idR, idCu) VALUES (68541, 148);
+INSERT INTO Sert (idR, idCu) VALUES (70499, 200);
+INSERT INTO Sert (idR, idCu) VALUES (29925, 176);
+INSERT INTO Sert (idR, idCu) VALUES (49679, 8);
+INSERT INTO Sert (idR, idCu) VALUES (13292, 176);
+INSERT INTO Sert (idR, idCu) VALUES (72565, 198);
+INSERT INTO Sert (idR, idCu) VALUES (47666, 17);
+INSERT INTO Sert (idR, idCu) VALUES (19810, 157);
+INSERT INTO Sert (idR, idCu) VALUES (24993, 183);
+INSERT INTO Sert (idR, idCu) VALUES (29149, 22);
+INSERT INTO Sert (idR, idCu) VALUES (39156, 44);
+INSERT INTO Sert (idR, idCu) VALUES (25821, 20);
+INSERT INTO Sert (idR, idCu) VALUES (12177, 72);
+INSERT INTO Sert (idR, idCu) VALUES (26513, 18);
+INSERT INTO Sert (idR, idCu) VALUES (329, 169);
+INSERT INTO Sert (idR, idCu) VALUES (78369, 54);
+INSERT INTO Sert (idR, idCu) VALUES (67941, 188);
+INSERT INTO Sert (idR, idCu) VALUES (74727, 6);
+INSERT INTO Sert (idR, idCu) VALUES (24786, 44);
+INSERT INTO Sert (idR, idCu) VALUES (49027, 99);
+
+
+-- FAIT (MACHINE x ENTRETIEN)
+
+INSERT INTO Fait (idM, idEn) VALUES (1, 8001);
+INSERT INTO Fait (idM, idEn) VALUES (12, 3526);
+INSERT INTO Fait (idM, idEn) VALUES (3, 24084);
+INSERT INTO Fait (idM, idEn) VALUES (9, 28265);
+INSERT INTO Fait (idM, idEn) VALUES (9, 82809);
+INSERT INTO Fait (idM, idEn) VALUES (13, 67055);
+INSERT INTO Fait (idM, idEn) VALUES (1, 14082);
+INSERT INTO Fait (idM, idEn) VALUES (18, 77072);
+INSERT INTO Fait (idM, idEn) VALUES (11, 77523);
+INSERT INTO Fait (idM, idEn) VALUES (16, 13423);
+INSERT INTO Fait (idM, idEn) VALUES (18, 21072);
+INSERT INTO Fait (idM, idEn) VALUES (7, 84337);
+INSERT INTO Fait (idM, idEn) VALUES (6, 81591);
+INSERT INTO Fait (idM, idEn) VALUES (2, 2133);
+INSERT INTO Fait (idM, idEn) VALUES (19, 42967);
+INSERT INTO Fait (idM, idEn) VALUES (14, 31608);
+INSERT INTO Fait (idM, idEn) VALUES (7, 97411);
+INSERT INTO Fait (idM, idEn) VALUES (15, 56645);
+INSERT INTO Fait (idM, idEn) VALUES (12, 94086);
+INSERT INTO Fait (idM, idEn) VALUES (1, 75363);
+INSERT INTO Fait (idM, idEn) VALUES (4, 16885);
+INSERT INTO Fait (idM, idEn) VALUES (7, 95169);
+INSERT INTO Fait (idM, idEn) VALUES (20, 32470);
+INSERT INTO Fait (idM, idEn) VALUES (7, 59398);
+INSERT INTO Fait (idM, idEn) VALUES (3, 82687);
+INSERT INTO Fait (idM, idEn) VALUES (4, 46772);
+INSERT INTO Fait (idM, idEn) VALUES (11, 97401);
+INSERT INTO Fait (idM, idEn) VALUES (13, 93365);
+INSERT INTO Fait (idM, idEn) VALUES (17, 75810);
+INSERT INTO Fait (idM, idEn) VALUES (20, 126);
+INSERT INTO Fait (idM, idEn) VALUES (1, 58727);
+INSERT INTO Fait (idM, idEn) VALUES (17, 53132);
+INSERT INTO Fait (idM, idEn) VALUES (2, 22626);
+INSERT INTO Fait (idM, idEn) VALUES (10, 2160);
+INSERT INTO Fait (idM, idEn) VALUES (9, 76785);
+INSERT INTO Fait (idM, idEn) VALUES (3, 54545);
+INSERT INTO Fait (idM, idEn) VALUES (12, 45485);
+INSERT INTO Fait (idM, idEn) VALUES (11, 67688);
+INSERT INTO Fait (idM, idEn) VALUES (18, 20312);
+INSERT INTO Fait (idM, idEn) VALUES (16, 4811);
+INSERT INTO Fait (idM, idEn) VALUES (16, 73087);
+INSERT INTO Fait (idM, idEn) VALUES (4, 62106);
+INSERT INTO Fait (idM, idEn) VALUES (11, 62035);
+INSERT INTO Fait (idM, idEn) VALUES (7, 56396);
+INSERT INTO Fait (idM, idEn) VALUES (18, 31834);
+INSERT INTO Fait (idM, idEn) VALUES (11, 17384);
+INSERT INTO Fait (idM, idEn) VALUES (4, 20330);
+INSERT INTO Fait (idM, idEn) VALUES (4, 34483);
+INSERT INTO Fait (idM, idEn) VALUES (1, 68723);
+INSERT INTO Fait (idM, idEn) VALUES (9, 61464);
+INSERT INTO Fait (idM, idEn) VALUES (13, 49090);
+INSERT INTO Fait (idM, idEn) VALUES (20, 2541);
+INSERT INTO Fait (idM, idEn) VALUES (14, 14637);
+INSERT INTO Fait (idM, idEn) VALUES (14, 66235);
+INSERT INTO Fait (idM, idEn) VALUES (17, 39174);
+INSERT INTO Fait (idM, idEn) VALUES (6, 10785);
+INSERT INTO Fait (idM, idEn) VALUES (17, 33854);
+INSERT INTO Fait (idM, idEn) VALUES (3, 76447);
+INSERT INTO Fait (idM, idEn) VALUES (7, 99231);
+INSERT INTO Fait (idM, idEn) VALUES (13, 86637);
+INSERT INTO Fait (idM, idEn) VALUES (18, 82534);
+INSERT INTO Fait (idM, idEn) VALUES (15, 22817);
+INSERT INTO Fait (idM, idEn) VALUES (19, 62441);
+INSERT INTO Fait (idM, idEn) VALUES (11, 81366);
+INSERT INTO Fait (idM, idEn) VALUES (15, 50843);
+INSERT INTO Fait (idM, idEn) VALUES (8, 10626);
+INSERT INTO Fait (idM, idEn) VALUES (7, 13531);
+INSERT INTO Fait (idM, idEn) VALUES (5, 95709);
+INSERT INTO Fait (idM, idEn) VALUES (6, 58193);
+INSERT INTO Fait (idM, idEn) VALUES (13, 32317);
+INSERT INTO Fait (idM, idEn) VALUES (16, 19633);
+INSERT INTO Fait (idM, idEn) VALUES (10, 10605);
+INSERT INTO Fait (idM, idEn) VALUES (15, 75285);
+INSERT INTO Fait (idM, idEn) VALUES (12, 9980);
+INSERT INTO Fait (idM, idEn) VALUES (7, 43986);
+INSERT INTO Fait (idM, idEn) VALUES (19, 24139);
+INSERT INTO Fait (idM, idEn) VALUES (19, 66729);
+INSERT INTO Fait (idM, idEn) VALUES (10, 24523);
+INSERT INTO Fait (idM, idEn) VALUES (3, 85125);
+INSERT INTO Fait (idM, idEn) VALUES (11, 48299);
+INSERT INTO Fait (idM, idEn) VALUES (14, 30639);
+INSERT INTO Fait (idM, idEn) VALUES (8, 1791);
+INSERT INTO Fait (idM, idEn) VALUES (1, 55879);
+INSERT INTO Fait (idM, idEn) VALUES (14, 38797);
+INSERT INTO Fait (idM, idEn) VALUES (3, 98486);
+INSERT INTO Fait (idM, idEn) VALUES (18, 40664);
+INSERT INTO Fait (idM, idEn) VALUES (9, 34456);
+INSERT INTO Fait (idM, idEn) VALUES (3, 39342);
+INSERT INTO Fait (idM, idEn) VALUES (8, 84456);
+INSERT INTO Fait (idM, idEn) VALUES (7, 49796);
+INSERT INTO Fait (idM, idEn) VALUES (5, 46010);
+INSERT INTO Fait (idM, idEn) VALUES (3, 44582);
+INSERT INTO Fait (idM, idEn) VALUES (11, 89);
+INSERT INTO Fait (idM, idEn) VALUES (11, 3561);
+INSERT INTO Fait (idM, idEn) VALUES (13, 5173);
+INSERT INTO Fait (idM, idEn) VALUES (18, 40212);
+INSERT INTO Fait (idM, idEn) VALUES (16, 72985);
+
+
+
+
+-- EST_UN_ASSEMBLAGE (SAUCE x INGREDIENT)
+
+
+-- EST_FABRIQUE (MACHINE x FABRIQUANT)
+
+
+--  Amene_A (21 lignes)
+INSERT INTO Amene_A (idCr, idOCP) VALUES (1, 7);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (2, 20);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (2, 1);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (3, 9);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (4, 13);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (4, 5);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (4, 2);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (5, 19);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (6, 13);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (6, 7);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (7, 13);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (8, 17);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (8, 5);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (8, 3);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (9, 9);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (10, 3);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (10, 15);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (10, 17);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (11, 13);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (12, 17);
+INSERT INTO Amene_A (idCr, idOCP) VALUES (13, 7);
+
+
+-- ENGENDRE (OPPOSITION x CROISADE)
+
+INSERT INTO Engendre (idOCP, idCro) VALUES (1, 5);
+INSERT INTO Engendre (idOCP, idCro) VALUES (2, 2);
+INSERT INTO Engendre (idOCP, idCro) VALUES (4, 16);
+INSERT INTO Engendre (idOCP, idCro) VALUES (6, 5);
+INSERT INTO Engendre (idOCP, idCro) VALUES (8, 8);
+INSERT INTO Engendre (idOCP, idCro) VALUES (9, 16);
+INSERT INTO Engendre (idOCP, idCro) VALUES (11, 20);
+INSERT INTO Engendre (idOCP, idCro) VALUES (14, 18);
+INSERT INTO Engendre (idOCP, idCro) VALUES (15, 11);
+INSERT INTO Engendre (idOCP, idCro) VALUES (18, 9);
+INSERT INTO Engendre (idOCP, idCro) VALUES (20, 18);
+
+-- POSSEDE (ORDRE_TENRAC x CLUB_TENRAC x MACHINE)
