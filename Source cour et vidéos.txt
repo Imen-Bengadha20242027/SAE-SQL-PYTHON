@@ -1,0 +1,14 @@
+ Source cour et vidéos
+
+https://www.w3schools.com/sql/
+Explications  sur CREATE, INSERT, contraintes, etc.
+https://www.postgresql.org/docs/current/index.html
+documentation officielle SQL 
+https://dev.mysql.com/doc/
+documentation officielle SQL 
+https://sql.sh/2541-colonnes-tables-sql
+info MCD
+https://sql.sh/cours
+SQL Cour 
+https://youtu.be/iZ6jg0Isw0Q?si=1ay4RMxZkUz80cht
+video mcd 
