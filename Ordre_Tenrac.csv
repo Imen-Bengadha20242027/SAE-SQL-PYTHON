@@ -1,0 +1,101 @@
+﻿idOT;nom;adresse;ville;type;codePostale
+1;Ordre Suprême du Tender;1 rue du Tender;Paris;National;75001
+2;Ordre Régional Sud;5 avenue de la Raclette;Marseille;Régional;13001
+3;Ordre Régional Nord;3 rue du Fromage;Lille;Régional;59000
+4;Ordre Régional Est;8 place du Gril;Strasbourg;Régional;67000
+5;Le Temple du Croustillant;7 Avenue du Colmar;Strasbourg;Régional;67000
+6;Ordre de la commende prioritaire;32 Avenue de la Visitation;Annecy;Régional;74000
+7;Palace de la goiffreri;114 Rue des Troènes;Toulouse;Régional;31200
+8;Les raclettes d'élite de Konoha;Restaurant Ichiraku;Konoha;Régional;13004
+9;Les ippons du Poulet;6 boulevard Sévigné;Bougainville;Régional;13015
+10;L'oiseau du fromage;16 boulevard Gambette;Pélissanne;Régional;13330
+11;Ordre du Comté;8 place des Jonquilles;Miramas;Régional;13140
+12;Order by Année;64 avenue Maréchal Juin;Perpignan;Départemental;66000
+13;Confrérie de la Charcuterie;45 chemin des Anciens Vergers;Avignon;Départemental;84000
+14;L'Ordre de la Raclette Lunaire;1 place du Capitole;Toulouse;Départemental;31004
+15;Sdf Sous Drogue Frommagère;12 chemin du Kelkepar;Perpette les Valons;Départemental;12345
+16;Les Saucisses de Poulet A;2 Château de la Robertsau;Strasbourg;Départemental;67100
+17;Les Saucisses de Poulet B;80 rue Kempf;Strasbourg;Départemental;67200
+18;Hikaru Nara;45 Dajajii;Nara;Départemental;63000
+19;L'Ordre de la Mode;3 rue Peroliere;Gap;Départemental;05000
+20;Le Temple Martial Kipu;91 avenue Saint-Exupéry;Saint-Chamas;Départemental;13250
+21;Trendette;33 rue Marie Marvingt;Montpellier;Départemental;34000
+22;La Capitale du Fromton;211 chemin de Jean Poulin;Paris;Départemental;70001
+23;El Pollo Fuego;45 el camino de los muertos;Barcelone;Départemental;95030
+24;Les Spores Frits;13 rue du Petit Champi;Champi-City;Départemental;46102
+25;La Plage de la Raclette;64 allée des Palmiers;Bamako;Départemental;69096
+26;Le Terrain de la Raclette;Mizu No.7 Ave;Kyoto;Départemental;10010
+27;La Salle du Temps et de la Raclette;7 rue des Dragon Ball;The World;Départemental;48260
+28;Le Petit Chien et la Voiture;Avenue des Champs Élysées;Monopoli;Départemental;98652
+29;Le Cercueil du Poulet;109 rue du Vampire;Mystic Falls;Départemental;34000
+30;Le Bâton de Wu-Kong;8 rue de l'Univers;Hong-Kong;Départemental;48516
+31;Le Portail du Nether;Dans l'arbre au milieu du marais;OverWorld;Départemental;68352
+32;La Foudre de Zeus;Entre les 2 petits nuages;Olympe;Départemental;00000
+33;La Pomme du Pommier;368 boulevard Edouard Daladier;Orange;International;84100
+34;Les Études de la Raclette;413 Av. Gaston Berger;Aix;International;13100
+35;La Luxure à l'État Pur;300 Av. Giuseppe Verdi;Aix;International;13100
+36;La Confrérie du Gras;975 Chambers Street;New-York;International;07020
+37;Capi et les 999 Lunes;Place de la corde à sauter;New-Donk City;International;10009
+38;Richard Coeur de Lion;456 rue de la Poulaillerie;Lyon;International;69000
+39;L'Oeuvre du Fromage;Musée du Louvre;Paris;International;70001
+40;La Raclette des Quartiers;51 travers du moulin de la villette;Marseille;International;13000
+41;L'Ordre des Magiciens;Chemin de travers;Poudlard;International;76426
+42;Les Tenders Canapé;39 Chem. du Vabre;Salon-de-Provence;International;13300
+43;Les Pneus Percés;74 magasin de Gwido;Radiator Springs;Intercontinental;66
+44;Le Palais Divin de Mmd Nakiri;Kanjo No.4 Ave;Tokyo;Intercontinental;10000
+45;Les 3 Starters;Laboratoire du Prof Chen;Bourg-Palette;Intercontinental;151
+46;Le Lanceur Héroïque;11 place du Marée Armée;Chromapolis;Intercontinental;90153
+47;Cercle des Fondus Alpins;2 chemin Alpages;Annecy;Local;74000
+48;Fraternité des Tenders Bretons;14 rue de la Mer;Brest;Régional;29000
+49;Guilde des Racleurs Savoyards;6 avenue Savoie;Chambéry;Local;73000
+50;Confrérie Chevaliers Normands;9 rue de la Seine;Rouen;Local;76000
+51;Haut Conseil des Commandeurs;3 avenue Victoire;Paris;National;75016
+52;Alliance Grilleurs Méditerranéens;7 rue Méditerranée;Toulon;Local;83000
+53;Société Secrète Tender Doré;10 place Raclette;Clermont-Ferrand;Régional;63000
+54;Loge des Fromagers Normands;4 rue Normandie;Caen;Local;14000
+55;Cercle des Tenders Ligériens;12 avenue Loire;Orléans;Local;45000
+56;Commanderie Fromage Méditerranéen;1 promenade Mer;Toulon;Régional;83100
+57;Guilde des Bulles de Raclette;5 rue Champagne;Reims;Local;51100
+58;Sanctuaire du Tender Béarnais;3 rue des Pyrénées;Pau;Local;64000
+59;Ordre du Gril Cathare;7 rue des Cathares;Carcassonne;Régional;11000
+60;Ligue des Fromagers Alsaciens;4 rue Riesling;Colmar;Local;68000
+61;Conseil des Anciens Grilleurs;9 place Anciens;Bordeaux;Régional;33000
+62;Temple du Poulet Provençal;6 avenue Provence;Aix-en-Provence;Local;13100
+63;Fraternité des Fondus Auvergnats;2 rue Volcan;Clermont-Ferrand;Local;63000
+64;Cercle des Racleurs Basques;8 rue Pelote;Bayonne;Régional;64100
+65;Guilde des Tenders Corses;3 cours Napoléon;Ajaccio;Local;20000
+66;Loge des Chevaliers Vendéens;5 rue Marais;La Roche-sur-Yon;Local;85000
+67;Alliance des Fondus Picards;7 rue des Champs;Amiens;Régional;80000
+68;Commanderie du Tender Bourguignon;4 rue Pinot;Beaune;Local;21200
+69;Temple du Gril Lorrain;6 rue Quiche;Nancy;Régional;54000
+70;Société des Racleurs Champenois;2 avenue Bulles;Épernay;Local;51200
+71;Ordre des Tenders Gascons;9 allée Mousquetaires;Auch;Local;32000
+72;Cercle des Fondus Périgourdins;3 rue Foie Gras;Périgueux;Régional;24000
+73;Fraternité du Tender Alsacien;7 rue Bretzel;Strasbourg;Local;67000
+74;Guilde des Chevaliers Limousins;4 rue Porcelaine;Limoges;Local;87000
+75;Loge des Racleurs Briards;5 rue Brie;Meaux;Local;77100
+76;Alliance Tenders Martiniquais;8 rue Cocotiers;Fort-de-France;International;97200
+77;Conseil des Grilleurs Réunionnais;3 rue Vanille;Saint-Denis;International;97400
+78;Temple du Tender Guyanais;6 avenue Forêt;Cayenne;International;97300
+79;Fraternité du Gril Bruxellois;9 rue Mannekin;Bruxelles;International;1000
+80;Guilde des Fondus Genevois;2 rue Horloge;Genève;International;1200
+81;Ordre des Racleurs Barcelonais;7 las Ramblas;Barcelone;International;08001
+82;Loge des Tenders Londoniens;4 Baker Street;Londres;International;00001
+83;Alliance des Chevaliers Romains;3 via del Tender;Rome;International;00100
+84;Commanderie des Fondus Berlinois;5 Kurfurstendamm;Berlin;International;10719
+85;Temple du Gril Madrilène;8 Gran Via;Madrid;International;28013
+86;Société des Racleurs Lisboètes;2 rua Tender;Lisbonne;International;1000
+87;Fraternité Fondus Amsterdamois;6 Herengracht;Amsterdam;International;1015
+88;Guilde des Tenders Viennois;9 Ringstrasse;Vienne;International;1010
+89;Ordre des Chevaliers Praghois;3 Venceslas Square;Prague;International;11000
+90;Loge des Racleurs Varsoviois;7 Nowy Swiat;Varsovie;Intercontinental;00001
+91;Alliance des Fondus Tokyoïtes;5 Shibuya Crossing;Tokyo;Intercontinental;15000
+92;Commanderie du Tender Shanghaïen;8 Bund Avenue;Shanghai;Intercontinental;20000
+93;Temple des Grilleurs Dubaïotes;3 Sheikh Zayed Road;Dubaï;Intercontinental;00971
+94;Fraternité du Gril New-Yorkais;9 5th Avenue;New-York;Intercontinental;10001
+95;Guilde des Fondus Montréalais;4 rue Sainte-Catherine;Montréal;Intercontinental;00001
+96;Ordre des Tenders Sydnéens;7 Harbour Bridge;Sydney;Intercontinental;2000
+97;Loge des Racleurs Buénosaïriens;2 Avenue 9 Juillet;Buenos Aires;Intercontinental;1001
+98;Alliance des Chevaliers Capetowniens;5 Table Mountain Road;Le Cap;Intercontinental;8001
+99;Commanderie du Tender Tokyoïte;3 Akihabara Street;Tokyo;Intercontinental;10100
+100;Le Grand Ordre Suprême des Tenracs;1 Endroit Secret;Monde;Intercontinental;99999

@@ -1,0 +1,101 @@
+﻿idP;nom;type;libelle
+1;Raclette au Brocoli;Spécial;Plat avec légume rare
+2;Raclette Courgette;Spécial;Plat végétal exceptionnel
+3;Tenders Frits Classiques;Classique;Tenders de poulet dorés et croustillants
+4;Tenders Épicés;Épicé;Tenders marinés au piment
+5;Pizza Quatre Fromages;Italien;Pizza généreuse aux fromages fondants
+6;Quiche Lorraine;Traditionnel;Quiche garnie lardons et crème
+7;Kebab Maison;Fusion;Viande à kebab sauce blanche
+8;Saumon Grillé;Prestige;Saumon fumé façon tenrac
+9;Burger Tenrac;Fusion;Burger bœuf et fromage fondu
+10;Fondue Savoyarde;Traditionnel;Fromage fondu au vin blanc
+11;Tartiflette;Traditionnel;Pommes de terre reblochon lardons
+12;Pierrade de Bœuf;Prestige;Bœuf cuit sur pierre chaude
+13;Tacos Fromage;Fusion;Tacos garnis de fromage fondu
+14;Hot Dog Chorizo;Classique;Pain brioche et chorizo grillé
+15;Croque Monsieur Tenrac;Classique;Jambon fromage gratiné au four
+16;Lasagnes Bolognaise;Italien;Lasagnes gratinées à la bolognaise
+17;Gratin Dauphinois;Traditionnel;Pommes de terre crème et gruyère
+18;Wrap Poulet Caesar;Fusion;Wrap croustillant sauce caesar
+19;Poutine Tenrac;Exotique;Frites fromage et sauce brune
+20;Nachos Fromage;Exotique;Chips de maïs et fromage fondu
+21;Crêpe Jambon Fromage;Classique;Crêpe garnie jambon et emmental
+22;Pasta Carbonara;Italien;Pâtes œuf lardons parmesan
+23;Œufs Cocotte;Traditionnel;Œufs crème et lardons au four
+24;Tarte Flambée;Alsacien;Crème fraîche oignons et lardons
+25;Aligot Tenrac;Traditionnel;Purée de pommes de terre et tomme
+26;Tenders au Miel;Exotique;Tenders glacés au miel et sésame
+27;Gaufre Salée Tenrac;Classique;Gaufre garnie fromage et lardons
+28;Brioche Fourrée Poulet;Fusion;Brioche moelleuse et poulet fondant
+29;Tenders Panko;Classique;Tenders enrobés de chapelure japonaise
+30;Risotto Fromage;Italien;Risotto crémeux aux trois fromages
+31;Empanadas Tenrac;Exotique;Chaussons farcis viande et fromage
+32;Soufflé au Fromage;Prestige;Soufflé léger et aérien au gruyère
+33;Bagel Saumon Fromage;Fusion;Bagel toasté saumon et fromage frais
+34;Rösti Suisse;Exotique;Galette de pommes de terre croustillante
+35;Tenders Teriyaki;Exotique;Tenders laqués sauce teriyaki
+36;Flammekueche Tenrac;Alsacien;Tarte flambée garnie façon tenrac
+37;Omelette Fromage Fines Herbes;Classique;Omelette moelleuse aux herbes
+38;Velouté de Fromage;Prestige;Soupe onctueuse aux fromages fondus
+39;Churros Salés Fromage;Exotique;Churros croustillants au fromage fondu
+40;Brioche Perdue Salée;Classique;Pain perdu salé jambon fromage
+41;Feuilleté au Camembert;Prestige;Feuilleté croustillant et camembert fondant
+42;Croquettes de Fromage;Classique;Boulettes panées au fromage fondu
+43;Tenders BBQ;Classique;Tenders nappés de sauce barbecue
+44;Strudel Salé Tenrac;Exotique;Feuilleté autrichien garni viande fromage
+45;Galette Sarrasin Complète;Breton;Galette oeuf jambon fromage
+46;Samossa Fromage Poulet;Exotique;Samossas croustillants poulet et fromage
+47;Crumble Salé Fromage;Prestige;Crumble gratiné aux fromages affinés
+48;Tortilla Espagnole Tenrac;Exotique;Tortilla pomme de terre et fromage
+49;Maki Tenrac;Exotique;Maki inversé poulet fromage fondu
+50;Brick Tunisienne Fromage;Exotique;Brick croustillante oeuf et fromage
+51;Naan Fromage Tenrac;Exotique;Pain indien garni fromage fondu
+52;Dahl de Lentilles Tenrac;Exotique;Lentilles épicées façon tenrac
+53;Polenta Grillée Fromage;Italien;Polenta croustillante et fromage fondu
+54;Tenders Coco Curry;Exotique;Tenders marinés coco et curry doux
+55;Focaccia Fromage Olives;Italien;Focaccia moelleuse garnie fromage
+56;Bao Poulet Fromage;Exotique;Brioche vapeur asiatique farcie
+57;Calzone Tenrac;Italien;Pizza chausson garnie fromage viande
+58;Cordon Bleu Maison;Classique;Escalope panée jambon et fromage
+59;Quesadilla Tenrac;Exotique;Tortilla grillée fromage et poulet
+60;Börek Fromage;Exotique;Feuilleté turc au fromage et persil
+61;Raviolis Fromage Maison;Italien;Raviolis farcis ricotta et parmesan
+62;Pierogi Fromage;Exotique;Raviolis polonais pomme de terre fromage
+63;Chimichanga Tenrac;Exotique;Burrito frit fromage et viande
+64;Tiropita Grecque;Exotique;Feuilleté grec à la feta
+65;Cacio e Pepe Tenrac;Italien;Pâtes fromage et poivre façon tenrac
+66;Tenders Sriracha;Épicé;Tenders nappés de sauce pimentée
+67;Croque Madame Tenrac;Classique;Croque monsieur couronné d'un oeuf
+68;Saltimbocca Fromage;Italien;Escalope veau sauge et fromage
+69;Mafaldine Fromage Fondant;Italien;Pâtes larges fromage fondu crémeux
+70;Cottage Pie Tenrac;Exotique;Hachis parmentier façon anglaise
+71;Vol-au-Vent Fromage;Prestige;Feuilleté garni béchamel et fromage
+72;Tenders Katsu;Exotique;Tenders panés sauce japonaise tonkatsu
+73;Farçous Aveyronnais;Traditionnel;Galettes herbes et fromage du terroir
+74;Brandade Tenrac;Traditionnel;Brandade de morue gratinée au fromage
+75;Tatin Salée Fromage;Prestige;Tatin renversée oignons et fromage
+76;Smash Burger Tenrac;Fusion;Burger écrasé double fromage fondu
+77;Tourte Fromage Lardons;Traditionnel;Tourte feuilletée fromage et lardons
+78;Stuffed Crust Pizza;Fusion;Pizza bords farcis au fromage fondu
+79;Tenders Wasabi;Épicé;Tenders enrobés sauce wasabi
+80;Blinis Fromage Frais;Exotique;Blinis moelleux fromage frais et herbes
+81;Chili con Queso Tenrac;Épicé;Chili relevé nappé de fromage fondu
+82;Pide Fromage;Exotique;Pain turc en barque garni fromage
+83;Tenders Citron Thym;Classique;Tenders marinés citron et thym frais
+84;Ficelle Picarde;Traditionnel;Crêpe roulée jambon champignons fromage
+85;Porchetta Fromage;Prestige;Rôti de porc farci fromage et herbes
+86;Knödel Fromage;Exotique;Boulettes autrichiennes au fromage
+87;Tenders Zaatar;Exotique;Tenders marinés aux épices du Moyen-Orient
+88;Crostini Fromage Fondu;Italien;Tartines grillées fromage coulant
+89;Tenders Chimichurri;Exotique;Tenders sauce argentine chimichurri
+90;Pastilla Tenrac;Exotique;Feuilleté marocain sucré salé poulet
+91;Fondue Chinoise Tenrac;Exotique;Bouillon épicé viandes et fromage
+92;Tenders Miso;Exotique;Tenders marinés pâte de miso
+93;Pelmeni Fromage;Exotique;Raviolis russes fromage et viande
+94;Gözleme Fromage;Exotique;Crêpe turque garnie fromage et épinards
+95;Tenders Sumac;Épicé;Tenders épicés au sumac et citron
+96;Mlinci Fromage;Exotique;Pâtes croates gratinées au fromage
+97;Tenders Ras el Hanout;Épicé;Tenders aux épices nord-africaines
+98;Käsespätzle;Exotique;Pâtes alsaciennes gratinées fromage fondu
+99;Tenders Gochujang;Épicé;Tenders sauce pimentée coréenne
+100;Le Grand Festin Tenrac;Prestige;Plat ultime réservé aux Grand Maîtres

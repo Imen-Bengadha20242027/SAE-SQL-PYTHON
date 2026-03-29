@@ -1,0 +1,100 @@
+﻿idAli;type;nom;taille
+30;Légume;Brocoli;Petite
+31;Légume;Courgette;Moyenne
+100;Viande;Poulet fermier;Grande
+101;Viande;Bœuf haché;Moyenne
+107;Viande;Chevreau;Grande
+200;Divers;Tender Sacré;Grande
+201;Divers;Raclette Divine;Grande
+108;Charcuterie;Saucisson sec;Moyenne
+110;Charcuterie;Coppa;Moyenne
+111;Charcuterie;Rosette de Lyon;Grande
+112;Charcuterie;Pancetta;Moyenne
+113;Charcuterie;Andouillette;Grande
+114;Charcuterie;Boudin noir;Moyenne
+115;Charcuterie;Merguez;Petite
+116;Fromage;Raclette de Savoie;Grande
+117;Fromage;Beaufort;Grande
+118;Fromage;Tomme de Savoie;Grande
+119;Fromage;Munster;Moyenne
+122;Fromage;Abondance;Grande
+123;Condiment;Moutarde ancienne;Petite
+124;Condiment;Ketchup maison;Moyenne
+125;Condiment;Mayonnaise;Moyenne
+126;Condiment;Sauce soja;Petite
+130;Féculent;Riz basmati;Grande
+131;Féculent;Pâtes fraîches;Grande
+132;Féculent;Pain de campagne;Grande
+133;Féculent;Semoule;Moyenne
+134;Féculent;Quinoa;Petite
+135;Poisson;Saumon fumé;Grande
+136;Poisson;Thon en boîte;Moyenne
+137;Poisson;Anchois;Petite
+138;Poisson;Cabillaud;Grande
+139;Divers;Ananas en tranche;Moyenne
+140;Divers;Noix;Petite
+141;Divers;Miel;Petite
+142;Divers;Crème fraîche;Moyenne
+143;Divers;Beurre demi-sel;Petite
+144;Épice;Curcuma;Petite
+145;Épice;Paprika fumé;Petite
+146;Épice;Cannelle;Petite
+147;Épice;Cumin;Petite
+202;Viande;Magret de canard;Grande
+203;Viande;Côte de porc;Grande
+204;Viande;Escalope de veau;Moyenne
+205;Viande;Gigot d'agneau;Grande
+206;Viande;Blanc de dinde;Moyenne
+207;Viande;Travers de porc;Grande
+208;Viande;Steak haché;Moyenne
+209;Viande;Cuisses de poulet;Grande
+210;Viande;Filet mignon;Grande
+211;Charcuterie;Jambon blanc;Grande
+212;Charcuterie;Prosciutto;Petite
+213;Charcuterie;Salami;Moyenne
+214;Charcuterie;Lardons fumés;Petite
+215;Charcuterie;Mortadelle truffée;Grande
+216;Fromage;Parmesan;Grande
+217;Fromage;Pecorino;Moyenne
+218;Fromage;Ricotta;Moyenne
+219;Fromage;Burrata;Petite
+220;Fromage;Mozzarella di Bufala;Moyenne
+221;Fromage;Ossau-Iraty;Grande
+222;Fromage;Époisses;Petite
+223;Fromage;Saint-Nectaire;Moyenne
+224;Fromage;Fourme d'Ambert;Grande
+225;Condiment;Wasabi;Petite
+226;Condiment;Sauce hoisin;Petite
+227;Condiment;Vinaigre de cidre;Petite
+228;Condiment;Sauce worcestershire;Petite
+229;Condiment;Pesto rosso;Petite
+230;Féculent;Polenta;Grande
+231;Féculent;Orge perlé;Moyenne
+232;Féculent;Boulgour;Moyenne
+233;Féculent;Millet;Petite
+234;Féculent;Pain brioche;Grande
+235;Poisson;Dorade;Grande
+236;Poisson;Bar;Grande
+237;Poisson;Truite fumée;Moyenne
+238;Poisson;Hareng mariné;Petite
+239;Poisson;Maquereau;Moyenne
+240;Divers;Œuf de caille;Petite
+241;Divers;Châtaigne;Petite
+242;Divers;Truffe noire;Petite
+243;Divers;Lait de coco;Moyenne
+244;Divers;Crème de soja;Moyenne
+245;Épice;Cardamome;Petite
+246;Épice;Sumac;Petite
+247;Épice;Zaatar;Petite
+248;Épice;Garam masala;Petite
+249;Épice;Ras el hanout;Petite
+250;Épice;Piment d'Espelette;Petite
+251;Épice;Vanille;Petite
+252;Épice;Safran;Petite
+253;Épice;Anis étoilé;Petite
+254;Épice;Fenugrec;Petite
+255;Légume;Chou pak choï;Moyenne
+256;Légume;Mizuna;Petite
+257;Légume;Wasabi frais;Petite
+258;Légume;Daikon;Grande
+259;Légume;Gombo;Petite

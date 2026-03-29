@@ -1,0 +1,101 @@
+﻿idAll;nom;effet
+1;Lactose;Troubles digestifs
+2;Gluten;Maladie cœliaque
+3;Arachide;Choc anaphylactique
+4;Moutarde;Urticaire et démangeaisons
+5;Sésame;Gonflement des lèvres
+6;Fromage;Éruptions cutanées
+7;Céleri;Difficultés respiratoires
+8;Sulfites;Maux de tête violents
+9;Soja;Picotements dans la bouche
+10;Poivre;Éternuements chroniques
+11;Lupin;Rougeurs diffuses
+12;Noix de cajou;Œdème de Quincke
+13;Protéines du lait;Nausées et vertiges
+14;Paprika;Brûlures d'estomac
+15;Poisson;Douleurs abdominales
+16;Maïs;Ballonnements
+17;Levure;Fatigue intense
+18;Coriandre;Goût de savon et rejet
+19;Moisissures;Irritation des muqueuses
+20;Noisette;Démangeaisons de la gorge
+21;Lait de chèvre;Crampes d'estomac
+22;Colorant E120;Réaction allergique rare
+23;Noix de pécan;Gonflement du visage
+24;Amande;Réaction cutanée sévère
+25;Pistache;Difficultés à avaler
+26;Noix du Brésil;Choc anaphylactique sévère
+27;Macadamia;Tremblements musculaires
+28;Pollen de bouleau;Rhinite allergique
+29;Abeille;Réaction systémique grave
+30;Latex;Urticaire de contact
+31;Blé;Intolérance digestive
+32;Orge;Ballonnements sévères
+33;Seigle;Douleurs intestinales
+34;Avoine;Inflammation intestinale
+35;Crevette;Éruption cutanée immédiate
+36;Crabe;Gonflement des lèvres
+37;Homard;Difficultés respiratoires
+38;Moule;Nausées violentes
+39;Huître;Vomissements immédiats
+40;Palourde;Crampes abdominales
+41;Encre de seiche;Réaction cutanée rare
+42;Curry;Brûlures gastriques
+43;Curcuma;Coloration cutanée jaune
+44;Cannelle;Irritation buccale
+45;Clou de girofle;Engourdissement buccal
+46;Muscade;Hallucinations légères
+47;Anis;Réaction cutanée modérée
+48;Fenouil;Démangeaisons cutanées
+49;Carvi;Troubles digestifs légers
+50;Fenugrec;Odeur corporelle sucrée
+51;Piment fort;Irritation gastrique sévère
+52;Poivron;Troubles digestifs
+53;Tomate;Urticaire légère
+54;Aubergine;Démangeaisons orales
+55;Pomme de terre;Irritation cutanée
+56;Kiwi;Syndrome oral allergique
+57;Banane;Gonflement de la bouche
+58;Avocat;Réaction croisée latex
+59;Ananas;Irritation buccale intense
+60;Mangue;Dermatite de contact
+61;Pêche;Urticaire immédiate
+62;Abricot;Gonflement des lèvres
+63;Cerise;Démangeaisons orales
+64;Fraise;Éruption cutanée rouge
+65;Framboise;Urticaire légère
+66;Mûre;Troubles digestifs
+67;Myrtille;Coloration des urines
+68;Groseille;Picotements buccaux
+69;Raisin;Maux de tête
+70;Figue;Irritation cutanée
+71;Datte;Troubles digestifs
+72;Alcool éthylique;Rougeurs faciales
+73;Vin blanc;Maux de tête violents
+74;Bière;Gonflement abdominal
+75;Caféine;Palpitations cardiaques
+76;Chocolat;Migraines
+77;Cacao;Éruptions cutanées
+78;Vanille;Dermatite de contact
+79;Colorant E102;Hyperactivité enfants
+80;Colorant E110;Urticaire et asthme
+81;Glutamate;Syndrome du restaurant chinois
+82;Aspartame;Maux de tête chroniques
+83;Saccharine;Troubles digestifs légers
+84;Gélatine;Réaction anaphylactique rare
+85;Carraghénanes;Inflammation intestinale
+86;Gomme arabique;Asthme allergique
+87;Lécithine de soja;Urticaire légère
+88;Caséine;Troubles digestifs sévères
+89;Albumine d'œuf;Choc anaphylactique
+90;Jaune d'œuf;Urticaire immédiate
+91;Huile de tournesol;Réaction cutanée rare
+92;Huile de palme;Troubles digestifs
+93;Huile de colza;Démangeaisons légères
+94;Vinaigre de vin;Brûlures gastriques
+95;Levure de bière;Ballonnements sévères
+96;Propolis;Dermatite allergique
+97;Miel d'acacia;Urticaire légère
+98;Pollen de graminées;Rhinite et conjonctivite
+99;Poussière d'acarien;Asthme chronique
+100;Pénicilline naturelle;Choc anaphylactique sévère

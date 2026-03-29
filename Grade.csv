@@ -1,0 +1,101 @@
+﻿idG;nom;type;libelle;idT
+1;Affilié;Initiatique;Premier niveau de l'Ordre;1001
+2;Sympathisant;Initiatique;Membre sympathisant;1002
+3;Adhérent;Fraternel;Membre adhérent actif;1003
+4;Chevalier;Honorifique;Chevalier de l'Ordre;1004
+5;Dame;Honorifique;Dame de l'Ordre;1005
+6;Grand Chevalier;Supérieur;Grand Chevalier de l'Ordre;1006
+7;Haute Dame;Supérieur;Haute Dame de l'Ordre;1007
+8;Commandeur;Supérieur;Commandeur de l'Ordre;1008
+9;Grand'Croix;Suprême;Grand'Croix de l'Ordre;1009
+10;Affilié;Initiatique;Affilié en formation;1010
+11;Sympathisant;Fraternel;Sympathisant actif;1011
+12;Adhérent;Fraternel;Adhérent confirmé;1012
+13;Chevalier;Honorifique;Chevalier confirmé;1013
+14;Dame;Honorifique;Dame confirmée;1014
+15;Grand Chevalier;Supérieur;Grand Chevalier confirmé;1015
+16;Haute Dame;Supérieur;Haute Dame confirmée;1016
+17;Commandeur;Supérieur;Commandeur confirmé;1017
+18;Grand'Croix;Suprême;Grand'Croix confirmé;1018
+19;Affilié;Initiatique;Affilié débutant;1019
+20;Sympathisant;Initiatique;Sympathisant débutant;1020
+21;Adhérent;Fraternel;Adhérent engagé;1021
+22;Chevalier;Honorifique;Chevalier engagé;1022
+23;Dame;Honorifique;Dame engagée;1023
+24;Grand Chevalier;Supérieur;Grand Chevalier engagé;1024
+25;Haute Dame;Supérieur;Haute Dame engagée;1025
+26;Commandeur;Supérieur;Commandeur engagé;1026
+27;Grand'Croix;Suprême;Grand'Croix engagé;1027
+28;Affilié;Initiatique;Affilié novice;1028
+29;Sympathisant;Fraternel;Sympathisant novice;1029
+30;Adhérent;Honorifique;Adhérent honoraire;1030
+31;Chevalier;Supérieur;Chevalier honoraire;1031
+32;Dame;Supérieur;Dame honoraire;1032
+33;Grand Chevalier;Suprême;Grand Chevalier honoraire;1033
+34;Haute Dame;Suprême;Haute Dame honoraire;1034
+35;Commandeur;Suprême;Commandeur honoraire;1035
+36;Grand'Croix;Suprême;Grand'Croix honoraire;1036
+37;Affilié;Initiatique;Affilié en période essai;1037
+38;Sympathisant;Initiatique;Sympathisant période essai;1038
+39;Adhérent;Fraternel;Adhérent période essai;1039
+40;Chevalier;Honorifique;Chevalier période essai;1040
+41;Dame;Honorifique;Dame période essai;1041
+42;Grand Chevalier;Supérieur;Grand Chevalier émérite;1042
+43;Haute Dame;Supérieur;Haute Dame émérite;1043
+44;Commandeur;Supérieur;Commandeur émérite;1044
+45;Grand'Croix;Suprême;Grand'Croix émérite;1045
+46;Affilié;Initiatique;Affilié promu;1046
+47;Sympathisant;Fraternel;Sympathisant promu;1047
+48;Adhérent;Fraternel;Adhérent promu;1048
+49;Chevalier;Honorifique;Chevalier promu;1049
+50;Dame;Honorifique;Dame promue;1050
+51;Grand Chevalier;Supérieur;Grand Chevalier promu;1051
+52;Haute Dame;Supérieur;Haute Dame promue;1052
+53;Commandeur;Supérieur;Commandeur promu;1053
+54;Grand'Croix;Suprême;Grand'Croix promu;1054
+55;Affilié;Initiatique;Affilié actif;1055
+56;Sympathisant;Initiatique;Sympathisant actif local;1056
+57;Adhérent;Fraternel;Adhérent actif régional;1057
+58;Chevalier;Honorifique;Chevalier actif national;1058
+59;Dame;Honorifique;Dame active nationale;1059
+60;Haute Dame;Supérieur;Haute Dame nationale;1060
+61;Haute Dame;Supérieur;Haute Dame nationale;1061
+62;Commandeur;Supérieur;Commandeur national;1062
+63;Grand'Croix;Suprême;Grand'Croix national;1063
+64;Affilié;Initiatique;Affilié international;1064
+65;Sympathisant;Fraternel;Sympathisant international;1065
+66;Adhérent;Fraternel;Adhérent international;1066
+67;Chevalier;Honorifique;Chevalier international;1067
+68;Dame;Honorifique;Dame internationale;1068
+69;Grand Chevalier;Supérieur;Grand Chevalier international;1069
+70;Haute Dame;Supérieur;Haute Dame internationale;1070
+71;Commandeur;Supérieur;Commandeur international;1071
+72;Grand'Croix;Suprême;Grand'Croix international;1072
+73;Affilié;Initiatique;Affilié vétéran;1073
+74;Sympathisant;Initiatique;Sympathisant vétéran;1074
+75;Adhérent;Fraternel;Adhérent vétéran;1075
+76;Chevalier;Honorifique;Chevalier vétéran;1076
+77;Dame;Honorifique;Dame vétérane;1077
+78;Grand Chevalier;Supérieur;Grand Chevalier vétéran;1078
+79;Haute Dame;Supérieur;Haute Dame vétérane;1079
+80;Commandeur;Supérieur;Commandeur vétéran;1080
+81;Grand'Croix;Suprême;Grand'Croix vétéran;1081
+82;Affilié;Initiatique;Affilié fondateur;1082
+83;Sympathisant;Fraternel;Sympathisant fondateur;1083
+84;Adhérent;Fraternel;Adhérent fondateur;1084
+85;Chevalier;Honorifique;Chevalier fondateur;1085
+86;Dame;Honorifique;Dame fondatrice;1086
+87;Grand Chevalier;Supérieur;Grand Chevalier fondateur;1087
+88;Haute Dame;Supérieur;Haute Dame fondatrice;1088
+89;Commandeur;Supérieur;Commandeur fondateur;1089
+90;Grand'Croix;Suprême;Grand'Croix fondateur;1090
+91;Affilié;Initiatique;Affilié méritant;1091
+92;Sympathisant;Initiatique;Sympathisant méritant;1092
+93;Sympathisant;Fraternel;Sympathisant méritant;1093
+94;Chevalier;Honorifique;Chevalier méritant;1094
+95;Haute Dame;Honorifique;Haute Dame méritante;1095
+96;Haute Dame;Supérieur;Haute Dame méritante;1096
+97;Haute Dame;Supérieur;Haute Dame méritante;1097
+98;Commandeur;Supérieur;Commandeur méritant;1098
+99;Grand'Croix;Suprême;Grand'Croix méritant;1099
+100;Grand'Croix;Suprême;Grand'Croix Suprême des Tenracs;1100

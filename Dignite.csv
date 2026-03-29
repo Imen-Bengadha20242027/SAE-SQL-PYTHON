@@ -1,0 +1,101 @@
+﻿idD;nom;type;libelle;idT
+1;Maître;Honorifique;Maître de l'Ordre;1001
+2;Grand Chancelier;Supérieur;Grand Chancelier de l'Ordre;1002
+3;Grand Maître;Suprême;Grand Maître de l'Ordre;1003
+4;Maître;Fraternel;Maître actif;1004
+5;Grand Chancelier;Fraternel;Grand Chancelier actif;1005
+6;Grand Maître;Suprême;Grand Maître actif;1006
+7;Maître;Initiatique;Maître initié;1007
+8;Grand Chancelier;Initiatique;Grand Chancelier initié;1008
+9;Grand Maître;Suprême;Grand Maître initié;1009
+10;Maître;Militant;Maître militant;1010
+11;Grand Chancelier;Militant;Grand Chancelier militant;1011
+12;Grand Maître;Suprême;Grand Maître militant;1012
+13;Maître;Spirituel;Maître spirituel;1013
+14;Grand Chancelier;Spirituel;Grand Chancelier spirituel;1014
+15;Grand Maître;Suprême;Grand Maître spirituel;1015
+16;Maître;Honorifique;Maître confirmé;1016
+17;Grand Chancelier;Honorifique;Grand Chancelier confirmé;1017
+18;Grand Maître;Suprême;Grand Maître confirmé;1018
+19;Maître;Supérieur;Maître supérieur;1019
+20;Grand Chancelier;Supérieur;Grand Chancelier supérieur;1020
+21;Grand Maître;Suprême;Grand Maître supérieur;1021
+22;Maître;Fraternel;Maître fraternel;1022
+23;Grand Chancelier;Fraternel;Grand Chancelier fraternel;1023
+24;Grand Maître;Suprême;Grand Maître fraternel;1024
+25;Maître;Initiatique;Maître émérite;1025
+26;Grand Chancelier;Initiatique;Grand Chancelier émérite;1026
+27;Grand Maître;Suprême;Grand Maître émérite;1027
+28;Maître;Militant;Maître promu;1028
+29;Grand Chancelier;Militant;Grand Chancelier promu;1029
+30;Grand Maître;Suprême;Grand Maître promu;1030
+31;Maître;Spirituel;Maître vétéran;1031
+32;Grand Chancelier;Spirituel;Grand Chancelier vétéran;1032
+33;Grand Maître;Suprême;Grand Maître vétéran;1033
+34;Maître;Honorifique;Maître fondateur;1034
+35;Grand Chancelier;Honorifique;Grand Chancelier fondateur;1035
+36;Grand Maître;Suprême;Grand Maître fondateur;1036
+37;Maître;Supérieur;Maître méritant;1037
+38;Grand Chancelier;Supérieur;Grand Chancelier méritant;1038
+39;Grand Maître;Suprême;Grand Maître méritant;1039
+40;Maître;Fraternel;Maître local;1040
+41;Grand Chancelier;Fraternel;Grand Chancelier local;1041
+42;Grand Maître;Suprême;Grand Maître local;1042
+43;Maître;Initiatique;Maître régional;1043
+44;Grand Chancelier;Initiatique;Grand Chancelier régional;1044
+45;Grand Maître;Suprême;Grand Maître régional;1045
+46;Maître;Militant;Maître national;1046
+47;Grand Chancelier;Militant;Grand Chancelier national;1047
+48;Grand Maître;Suprême;Grand Maître national;1048
+49;Maître;Spirituel;Maître international;1049
+50;Grand Chancelier;Spirituel;Grand Chancelier international;1050
+51;Grand Maître;Suprême;Grand Maître international;1051
+52;Maître;Honorifique;Maître intercontinental;1052
+53;Grand Chancelier;Honorifique;Grand Chancelier intercontinental;1053
+54;Grand Maître;Suprême;Grand Maître intercontinental;1054
+55;Maître;Supérieur;Maître de la Raclette;1055
+56;Grand Chancelier;Supérieur;Grand Chancelier de la Raclette;1056
+57;Grand Maître;Suprême;Grand Maître de la Raclette;1057
+58;Maître;Fraternel;Maître du Tender;1058
+59;Grand Chancelier;Fraternel;Grand Chancelier du Tender;1059
+60;Grand Maître;Suprême;Grand Maître du Tender;1060
+61;Maître;Initiatique;Maître du Fromage;1061
+62;Grand Chancelier;Initiatique;Grand Chancelier du Fromage;1062
+63;Grand Maître;Suprême;Grand Maître du Fromage;1063
+64;Maître;Militant;Maître du Gril;1064
+65;Grand Chancelier;Militant;Grand Chancelier du Gril;1065
+66;Grand Maître;Suprême;Grand Maître du Gril;1066
+67;Maître;Spirituel;Maître de la Fondue;1067
+68;Grand Chancelier;Spirituel;Grand Chancelier de la Fondue;1068
+69;Grand Maître;Suprême;Grand Maître de la Fondue;1069
+70;Maître;Honorifique;Maître de la Pierrade;1070
+71;Grand Chancelier;Honorifique;Grand Chancelier de la Pierrade;1071
+72;Grand Maître;Suprême;Grand Maître de la Pierrade;1072
+73;Maître;Supérieur;Maître de la Sauce;1073
+74;Grand Chancelier;Supérieur;Grand Chancelier de la Sauce;1074
+75;Grand Maître;Suprême;Grand Maître de la Sauce;1075
+76;Maître;Fraternel;Maître du Chevalier;1076
+77;Grand Chancelier;Fraternel;Grand Chancelier du Chevalier;1077
+78;Grand Maître;Suprême;Grand Maître du Chevalier;1078
+79;Maître;Initiatique;Maître du Commandeur;1079
+80;Grand Chancelier;Initiatique;Grand Chancelier du Commandeur;1080
+81;Grand Maître;Suprême;Grand Maître du Commandeur;1081
+82;Maître;Militant;Maître de la Croisade;1082
+83;Grand Chancelier;Militant;Grand Chancelier de la Croisade;1083
+84;Grand Maître;Suprême;Grand Maître de la Croisade;1084
+85;Maître;Spirituel;Maître de l'Ordre Sacré;1085
+86;Grand Chancelier;Spirituel;Grand Chancelier de l'Ordre Sacré;1086
+87;Grand Maître;Suprême;Grand Maître de l'Ordre Sacré;1087
+88;Maître;Honorifique;Maître suprême;1088
+89;Grand Chancelier;Honorifique;Grand Chancelier suprême;1089
+90;Grand Maître;Suprême;Grand Maître suprême;1090
+91;Maître;Supérieur;Maître des Tenracs;1091
+92;Grand Chancelier;Supérieur;Grand Chancelier des Tenracs;1092
+93;Grand Maître;Suprême;Grand Maître des Tenracs;1093
+94;Maître;Fraternel;Maître éternel;1094
+95;Grand Chancelier;Fraternel;Grand Chancelier éternel;1095
+96;Grand Maître;Suprême;Grand Maître éternel;1096
+97;Maître;Initiatique;Maître légendaire;1097
+98;Grand Chancelier;Initiatique;Grand Chancelier légendaire;1098
+99;Grand Maître;Suprême;Grand Maître légendaire;1099
+100;Grand Maître;Suprême;Grand Maître Suprême des Tenracs;1100

@@ -1,0 +1,101 @@
+﻿idTi;nom;type;libelle;idT
+1;Philanthrope;Honorifique;Philanthrope de l'Ordre;1001
+2;Protecteur;Honorifique;Protecteur de l'Ordre;1002
+3;Honorable;Honorifique;Membre Honorable;1003
+4;Philanthrope;Fraternel;Philanthrope actif;1004
+5;Protecteur;Fraternel;Protecteur actif;1005
+6;Honorable;Fraternel;Honorable actif;1006
+7;Philanthrope;Supérieur;Philanthrope supérieur;1007
+8;Protecteur;Supérieur;Protecteur supérieur;1008
+9;Honorable;Supérieur;Honorable supérieur;1009
+10;Philanthrope;Initiatique;Philanthrope initié;1010
+11;Protecteur;Initiatique;Protecteur initié;1011
+12;Honorable;Initiatique;Honorable initié;1012
+13;Philanthrope;Militant;Philanthrope militant;1013
+14;Protecteur;Militant;Protecteur militant;1014
+15;Honorable;Militant;Honorable militant;1015
+16;Philanthrope;Spirituel;Philanthrope spirituel;1016
+17;Protecteur;Spirituel;Protecteur spirituel;1017
+18;Honorable;Spirituel;Honorable spirituel;1018
+19;Philanthrope;Honorifique;Philanthrope confirmé;1019
+20;Protecteur;Honorifique;Protecteur confirmé;1020
+21;Honorable;Honorifique;Honorable confirmé;1021
+22;Philanthrope;Fraternel;Philanthrope fraternel;1022
+23;Protecteur;Fraternel;Protecteur fraternel;1023
+24;Honorable;Fraternel;Honorable fraternel;1024
+25;Philanthrope;Supérieur;Philanthrope émérite;1025
+26;Protecteur;Supérieur;Protecteur émérite;1026
+27;Honorable;Supérieur;Honorable émérite;1027
+28;Philanthrope;Initiatique;Philanthrope novice;1028
+29;Protecteur;Initiatique;Protecteur novice;1029
+30;Honorable;Initiatique;Honorable novice;1030
+31;Philanthrope;Militant;Philanthrope promu;1031
+32;Protecteur;Militant;Protecteur promu;1032
+33;Honorable;Militant;Honorable promu;1033
+34;Philanthrope;Spirituel;Philanthrope vétéran;1034
+35;Protecteur;Spirituel;Protecteur vétéran;1035
+36;Honorable;Spirituel;Honorable vétéran;1036
+37;Philanthrope;Honorifique;Philanthrope fondateur;1037
+38;Protecteur;Honorifique;Protecteur fondateur;1038
+39;Honorable;Honorifique;Honorable fondateur;1039
+40;Philanthrope;Fraternel;Philanthrope méritant;1040
+41;Protecteur;Fraternel;Protecteur méritant;1041
+42;Honorable;Fraternel;Honorable méritant;1042
+43;Philanthrope;Supérieur;Philanthrope local;1043
+44;Protecteur;Supérieur;Protecteur local;1044
+45;Honorable;Supérieur;Honorable local;1045
+46;Philanthrope;Initiatique;Philanthrope régional;1046
+47;Protecteur;Initiatique;Protecteur régional;1047
+48;Honorable;Initiatique;Honorable régional;1048
+49;Philanthrope;Militant;Philanthrope national;1049
+50;Protecteur;Militant;Protecteur national;1050
+51;Honorable;Militant;Honorable national;1051
+52;Philanthrope;Spirituel;Philanthrope international;1052
+53;Protecteur;Spirituel;Protecteur international;1053
+54;Honorable;Spirituel;Honorable international;1054
+55;Philanthrope;Honorifique;Philanthrope intercontinental;1055
+56;Protecteur;Honorifique;Protecteur intercontinental;1056
+57;Honorable;Honorifique;Honorable intercontinental;1057
+58;Philanthrope;Fraternel;Philanthrope de la Raclette;1058
+59;Protecteur;Fraternel;Protecteur de la Raclette;1059
+60;Honorable;Fraternel;Honorable de la Raclette;1060
+61;Philanthrope;Supérieur;Philanthrope du Tender;1061
+62;Protecteur;Supérieur;Protecteur du Tender;1062
+63;Honorable;Supérieur;Honorable du Tender;1063
+64;Philanthrope;Initiatique;Philanthrope du Fromage;1064
+65;Protecteur;Initiatique;Protecteur du Fromage;1065
+66;Honorable;Initiatique;Honorable du Fromage;1066
+67;Philanthrope;Militant;Philanthrope du Gril;1067
+68;Protecteur;Militant;Protecteur du Gril;1068
+69;Honorable;Militant;Honorable du Gril;1069
+70;Philanthrope;Spirituel;Philanthrope de la Fondue;1070
+71;Protecteur;Spirituel;Protecteur de la Fondue;1071
+72;Honorable;Spirituel;Honorable de la Fondue;1072
+73;Philanthrope;Honorifique;Philanthrope de la Pierrade;1073
+74;Protecteur;Honorifique;Protecteur de la Pierrade;1074
+75;Honorable;Honorifique;Honorable de la Pierrade;1075
+76;Philanthrope;Fraternel;Philanthrope de la Sauce;1076
+77;Protecteur;Fraternel;Protecteur de la Sauce;1077
+78;Honorable;Fraternel;Honorable de la Sauce;1078
+79;Philanthrope;Supérieur;Philanthrope du Chevalier;1079
+80;Protecteur;Supérieur;Protecteur du Chevalier;1080
+81;Honorable;Supérieur;Honorable du Chevalier;1081
+82;Philanthrope;Initiatique;Philanthrope du Commandeur;1082
+83;Protecteur;Initiatique;Protecteur du Commandeur;1083
+84;Honorable;Initiatique;Honorable du Commandeur;1084
+85;Philanthrope;Militant;Philanthrope du Grand Maître;1085
+86;Protecteur;Militant;Protecteur du Grand Maître;1086
+87;Honorable;Militant;Honorable du Grand Maître;1087
+88;Philanthrope;Spirituel;Philanthrope de la Croisade;1088
+89;Protecteur;Spirituel;Protecteur de la Croisade;1089
+90;Honorable;Spirituel;Honorable de la Croisade;1090
+91;Philanthrope;Honorifique;Philanthrope de l'Ordre Sacré;1091
+92;Protecteur;Honorifique;Protecteur de l'Ordre Sacré;1092
+93;Honorable;Honorifique;Honorable de l'Ordre Sacré;1093
+94;Philanthrope;Fraternel;Philanthrope suprême;1094
+95;Protecteur;Fraternel;Protecteur suprême;1095
+96;Honorable;Fraternel;Honorable suprême;1096
+97;Philanthrope;Supérieur;Philanthrope des Tenracs;1097
+98;Protecteur;Supérieur;Protecteur des Tenracs;1098
+99;Honorable;Supérieur;Honorable des Tenracs;1099
+100;Honorable;Suprême;Honorable Suprême des Tenracs;1100

@@ -1,0 +1,101 @@
+﻿idR;nom;type;libelle;idT
+1;Novice;Initiatique;Novice en formation;1001
+2;Compagnon;Fraternel;Compagnon de l'Ordre;1002
+3;Novice;Spirituel;Novice en quête;1003
+4;Compagnon;Militant;Compagnon actif;1004
+5;Novice;Initiatique;Novice débutant;1005
+6;Compagnon;Honorifique;Compagnon honoraire;1006
+7;Novice;Fraternel;Novice fraternel;1007
+8;Compagnon;Spirituel;Compagnon spirituel;1008
+9;Novice;Militant;Novice engagé;1009
+10;Compagnon;Initiatique;Compagnon initié;1010
+11;Novice;Initiatique;Novice actif;1011
+12;Compagnon;Fraternel;Compagnon confirmé;1012
+13;Novice;Spirituel;Novice confirmé;1013
+14;Compagnon;Militant;Compagnon engagé;1014
+15;Novice;Initiatique;Novice promu;1015
+16;Compagnon;Honorifique;Compagnon promu;1016
+17;Novice;Fraternel;Novice en période essai;1017
+18;Compagnon;Spirituel;Compagnon émérite;1018
+19;Novice;Militant;Novice méritant;1019
+20;Compagnon;Initiatique;Compagnon méritant;1020
+21;Novice;Initiatique;Novice vétéran;1021
+22;Compagnon;Fraternel;Compagnon vétéran;1022
+23;Novice;Spirituel;Novice fondateur;1023
+24;Compagnon;Militant;Compagnon fondateur;1024
+25;Novice;Honorifique;Novice honoraire;1025
+26;Compagnon;Honorifique;Compagnon honoraire confirmé;1026
+27;Novice;Fraternel;Novice fraternel actif;1027
+28;Compagnon;Spirituel;Compagnon spirituel actif;1028
+29;Novice;Militant;Novice militant actif;1029
+30;Compagnon;Initiatique;Compagnon initié actif;1030
+31;Novice;Initiatique;Novice initiatique local;1031
+32;Compagnon;Fraternel;Compagnon fraternel local;1032
+33;Novice;Spirituel;Novice spirituel local;1033
+34;Compagnon;Militant;Compagnon militant local;1034
+35;Novice;Honorifique;Novice honoraire local;1035
+36;Compagnon;Honorifique;Compagnon honoraire local;1036
+37;Novice;Fraternel;Novice régional;1037
+38;Compagnon;Spirituel;Compagnon régional;1038
+39;Novice;Militant;Novice militant régional;1039
+40;Compagnon;Initiatique;Compagnon initié régional;1040
+41;Novice;Initiatique;Novice national;1041
+42;Compagnon;Fraternel;Compagnon national;1042
+43;Novice;Spirituel;Novice spirituel national;1043
+44;Compagnon;Militant;Compagnon militant national;1044
+45;Novice;Honorifique;Novice honoraire national;1045
+46;Compagnon;Honorifique;Compagnon honoraire national;1046
+47;Novice;Fraternel;Novice international;1047
+48;Compagnon;Spirituel;Compagnon international;1048
+49;Novice;Militant;Novice militant international;1049
+50;Compagnon;Initiatique;Compagnon initié international;1050
+51;Novice;Initiatique;Novice intercontinental;1051
+52;Compagnon;Fraternel;Compagnon intercontinental;1052
+53;Novice;Spirituel;Novice spirituel avancé;1053
+54;Compagnon;Militant;Compagnon militant avancé;1054
+55;Novice;Honorifique;Novice honoraire avancé;1055
+56;Compagnon;Honorifique;Compagnon honoraire avancé;1056
+57;Novice;Fraternel;Novice fraternel avancé;1057
+58;Compagnon;Spirituel;Compagnon spirituel avancé;1058
+59;Novice;Militant;Novice en croisade;1059
+60;Compagnon;Initiatique;Compagnon en croisade;1060
+61;Novice;Initiatique;Novice de la Raclette;1061
+62;Compagnon;Fraternel;Compagnon de la Raclette;1062
+63;Novice;Spirituel;Novice du Tender;1063
+64;Compagnon;Militant;Compagnon du Tender;1064
+65;Novice;Honorifique;Novice du Fromage;1065
+66;Compagnon;Honorifique;Compagnon du Fromage;1066
+67;Novice;Fraternel;Novice du Gril;1067
+68;Compagnon;Spirituel;Compagnon du Gril;1068
+69;Novice;Militant;Novice de la Fondue;1069
+70;Compagnon;Initiatique;Compagnon de la Fondue;1070
+71;Novice;Initiatique;Novice de la Pierrade;1071
+72;Compagnon;Fraternel;Compagnon de la Pierrade;1072
+73;Novice;Spirituel;Novice de la Sauce;1073
+74;Compagnon;Militant;Compagnon de la Sauce;1074
+75;Novice;Honorifique;Novice du Chevalier;1075
+76;Compagnon;Honorifique;Compagnon du Chevalier;1076
+77;Novice;Fraternel;Novice du Commandeur;1077
+78;Compagnon;Spirituel;Compagnon du Commandeur;1078
+79;Novice;Militant;Novice du Grand Maître;1079
+80;Compagnon;Initiatique;Compagnon du Grand Maître;1080
+81;Novice;Initiatique;Novice confirmé avancé;1081
+82;Compagnon;Fraternel;Compagnon confirmé avancé;1082
+83;Novice;Spirituel;Novice spirituel suprême;1083
+84;Compagnon;Militant;Compagnon militant suprême;1084
+85;Novice;Honorifique;Novice honoraire suprême;1085
+86;Compagnon;Honorifique;Compagnon honoraire suprême;1086
+87;Novice;Fraternel;Novice fraternel suprême;1087
+88;Compagnon;Spirituel;Compagnon spirituel suprême;1088
+89;Novice;Militant;Novice militant suprême;1089
+90;Compagnon;Initiatique;Compagnon initié suprême;1090
+91;Novice;Initiatique;Novice de l'Ordre Sacré;1091
+92;Compagnon;Fraternel;Compagnon de l'Ordre Sacré;1092
+93;Novice;Spirituel;Novice de la Croisade;1093
+94;Compagnon;Militant;Compagnon de la Croisade;1094
+95;Novice;Honorifique;Novice de la Grande Croisade;1095
+96;Compagnon;Honorifique;Compagnon de la Grande Croisade;1096
+97;Novice;Fraternel;Novice Suprême de l'Ordre;1097
+98;Compagnon;Spirituel;Compagnon Suprême de l'Ordre;1098
+99;Novice;Militant;Novice des Grands Maîtres;1099
+100;Compagnon;Initiatique;Compagnon Suprême des Tenracs;1100

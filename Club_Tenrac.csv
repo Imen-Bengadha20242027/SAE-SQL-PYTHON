@@ -1,0 +1,101 @@
+﻿idCT;nom;adresse;type;ville;territoire
+1;Les Crocs Fromagers;12 rue des Alpages;Local;Strasbourg;Grand Est
+2;Team Raclette Supreme;5 avenue du Lac;Local;Perpignan;Catalogne
+3;Poulet Doré Club;22 rue des Saveurs;Local;Toulouse;Occitanie
+4;Shinobi Raclette Squad;Quartier Hokage;Local;Paris;Île-de-France
+5;Ippon Chicken Dojo;6 boulevard Sévigné;Local;Marseille;PACA
+6;Fromage et Volaille;16 boulevard Gambetta;Local;Marseille;PACA
+7;Comté Masters;8 place des Jonquilles;Local;Marseille;PACA
+8;Année Prime Club;64 avenue Juin;Local;Perpignan;Occitanie
+9;Charcuterie Elite;45 chemin des Vergers;Local;Marseille;PACA
+10;Raclette Capitole;1 place du Capitole;Local;Toulouse;Occitanie
+11;Fromage Addict;12 chemin perdu;Local;Tokyo;Japon
+12;Poulet Squad A;2 château Robertsau;Local;Strasbourg;Grand Est
+13;Poulet Squad B;80 rue Kempf;Local;Strasbourg;Grand Est
+14;Nara Food Club;45 rue Dajajii;Local;Nara;Japon
+15;Mode et Fromage;3 rue Perolière;Local;Marseille;PACA
+16;Kipu Fighters;91 avenue St-Exupéry;Local;Marseille;PACA
+17;Trend Food Club;33 rue Marie Marvingt;Local;Montpellier;Occitanie
+18;Fromton Capital;211 chemin Poulin;Local;Paris;Île-de-France
+19;El Pollo Crew;Camino de los Muertos;Local;Barcelone;Espagne
+20;Champi Fry Club;13 rue du Champi;Local;Strasbourg;Grand Est
+21;Raclette Beach Club;64 allée des Palmiers;Local;Toulouse;Occitanie
+22;Kyoto Raclette Dojo;Mizu Avenue;Local;Kyoto;Japon
+23;Time Chamber Club;Salle du Temps;Local;Paris;Île-de-France
+24;Monopoli Riders;Avenue Champs Élysées;Local;Paris;Île-de-France
+25;Vampire Chicken Club;109 rue du Vampire;Local;Tokyo;Japon
+26;Wukong Warriors;8 rue Universelle;Local;Toulouse;Occitanie
+27;Nether Raclette;Arbre du Marais;Local;Paris;Île-de-France
+28;Zeus Thunder Club;Entre 2 nuages;Local;Paris;Île-de-France
+29;Orange Fromage Club;368 boulevard Daladier;Local;Marseille;PACA
+30;Aix Student Raclette;413 avenue Berger;Local;Marseille;PACA
+31;Luxury Cheese Club;300 avenue Verdi;Local;Aix-en-Provence;PACA
+32;NY Fried Chicken;975 Chambers Street;Local;Perpignan;Catalogne
+33;999 Moons Club;Place de la Corde;Local;Tokyo;Japon
+34;Lionheart Club;456 rue Poulaillerie;Local;Lyon;Auvergne-Rhône-Alpes
+35;Louvre Cheese Society;Musée du Louvre;Local;Paris;Île-de-France
+36;Quartier Raclette;Traverse Moulin;Local;Marseille;PACA
+37;Wizard Food Club;Chemin de Travers;Local;Paris;Île-de-France
+38;Canap Tenders Club;39 chemin du Vabre;Local;Perpignan;Catalogne
+39;Radiator Chicken;Route 66;Local;Tokyo;Japon
+40;Nakiri Gourmet Club;Kanjo Avenue;Local;Tokyo;Japon
+41;Starter Squad;Laboratoire Chen;Local;Marseille;Paca
+42;Hero Launcher Club;11 place Armée;Local;Strasbourg;Grand Est
+43;Dragon Feast Club;Montagne du destin;Local;Perpignan;Catalogne
+44;Spartan Meat Club;Camp militaire;Local;Sparta;Antiquité
+45;Galaxy Raclette;Station orbitale 7;Local;Strasbourg;Grand Est
+46;Pirate Chicken Crew;Port de Grand Line;Local;Strasbourg;Grand Est
+47;Saiyan Grill Club;Capsule Corp;Local;Strasbourg;Grand Est
+48;Hunter Food Guild;Association Hunter;Local;Yorknew;Japon
+49;Demon Slayer BBQ;Quartier Taisho;Local;Tokyo;Japon
+50;Titan Meat Club;Mur Maria;Local;Paris;Île-de-France
+51;Société des Fondus Perpignanais;6 Rue des Catalans;Local;Perpignan;Catalogne
+52;Commanderie du Gril Manceau;8 Rue de la Sarthe;Régional;Le Mans;Sarthe
+53;Cercle des Racleurs Brestois;5 Rue de la Rade;Local;Perpignan;Catalogne
+54;Brigade des Tenders Tourangeaux;3 Rue du Château;Local;Tours;Touraine
+55;Temple du Fromage Fondu Rennais;12 Rue de la Cohue;Régional;Carpentras;Vaucluse
+56;Alliance des Tenders Mulhousiens;4 Rue de Bâle;Local;Perpignan;Catalogne
+57;Loge des Fondus Valentinois;7 Rue du Rhône;Départemental;Perpignan;Catalogne
+58;Confrérie du Tender Metzois;2 Rue de la Moselle;Local;Metz;Moselle
+59;Guilde des Racleurs Stéphanois;9 Rue du Ruban;Régional;Lyon;Auvergne-Rhône-Alpes
+60;Fraternité des Chevaliers Auxerrois;5 Rue de l'Yonne;Local;Lyon;Auvergne-Rhône-Alpes
+61;Société du Gril Biarrot;1 Avenue de l'Océan;Local;Toulouse;Occitanie
+62;Cercle des Tenders Troyens;6 Rue de la Bonneterie;Départemental;Toulouse;Occitanie
+63;Brigade des Fondus Verdunois;3 Rue de la Citadelle;Local;Marseille;Paca
+64;Temple des Racleurs Aurillacois;8 Rue du Cantal;Local;Marseille;Paca
+65;Alliance du Tender Aveyronnais;4 Rue du Roquefort;Régional;Perpignan;Catalogne
+66;Loge des Chevaliers Poitevins;7 Rue du Futuroscope;Local;Poitiers;Vienne
+67;Confrérie des Tenders Nantais;2 Rue des Ducs;Départemental;Perpignan;Catalogne
+68;Guilde du Fromage Fondu Palois;5 Rue des Pyrénées;Local;Carpentras;Vaucluse
+69;Fraternité des Racleurs Touristiques;3 Rue du Château;Itinérant;Toulouse;Occitanie
+70;Société des Fondus Albigeois;9 Rue de la Cathédrale;Local;Lyon;Auvergne-Rhône-Alpes
+71;Cercle des Tenders Montpelliérains;6 Place de la Comédie;Régional;Montpellier;Hérault
+72;Brigade des Fromagers Colmariens;4 Rue des Marchands;Local;Marseille;Paca
+73;Temple du Tender Périgourdin;8 Rue du Foie Gras;Départemental;Marseille;Paca
+74;Alliance des Racleurs Quimpérois;3 Rue de la Cathédrale;Local;Carpentras;Vaucluse
+75;Loge des Chevaliers Arlésiennes;7 Rue des Arènes;Local;Toulouse;Occitanie
+76;Confrérie des Tenders Vannetais;2 Rue des Remparts;Régional;Toulouse;Occitanie
+77;Guilde des Fondus Niortais;5 Rue du Marais Poitevin;Local;Marseille;Paca
+78;Fraternité du Gril Montois;9 Rue du Marché;Local;Carpentras;Vaucluse
+79;Société des Racleurs Sétois;3 Quai de la Mer;Départemental;Marseille;Paca
+80;Cercle des Tenders Draguignanais;6 Rue de la Provence;Local;Carpentras;Vaucluse
+81;Brigade des Fondus Béarnais;4 Rue du Gave;Régional;Carpentras;Vaucluse
+82;Temple des Chevaliers Chalonnais;8 Rue de la Saône;Local;Toulouse;Occitanie
+83;Alliance des Tenders Auxonnais;3 Rue de la Plaine;Local;Toulouse;Occitanie
+84;Loge des Racleurs Foréziens;7 Rue du Loire;Départemental;Toulouse;Occitanie
+85;Confrérie des Fondus Auragnais;2 Chemin des Combes;Local;Toulouse;Occitanie
+86;Guilde des Tenders Figeacois;5 Rue du Célé;Local;Lyon;Auvergne-Rhône-Alpes
+87;Fraternité des Racleurs Péronnas;9 Rue de la Bresse;Régional;Lyon;Auvergne-Rhône-Alpes
+88;Société des Fromagers Dracénois;3 Avenue de la Liberté;Local;Lyon;Auvergne-Rhône-Alpes
+89;Cercle des Tenders Carpentrassiens;6 Rue du Ventoux;Local;Carpentras;Vaucluse
+90;Brigade des Fondus Aptésiens;4 Rue des Ocres;Départemental;Carpentras;Vaucluse
+91;Temple du Tender Gapençais;8 Rue des Hautes-Alpes;Local;Gap;Hautes-Alpes
+92;Alliance des Racleurs Embrunais;3 Rue de la Durance;Local;Toulouse;Occitanie
+93;Loge des Chevaliers Sistéronais;7 Rue de la Citadelle;Régional;Lyon;Auvergne-Rhône-Alpes
+94;Confrérie des Tenders Dignards;2 Rue des Lavandes;Local;Lyon;Auvergne-Rhône-Alpes
+95;Guilde des Fondus Manosquins;5 Rue de la Durance;Local;Lyon;Auvergne-Rhône-Alpes
+96;Fraternité des Racleurs Antiboix;9 Avenue de la Mer;Départemental;Carpentras;Vaucluse
+97;Société des Tenders Grassois;3 Rue des Parfums;Local;Toulouse;Occitanie
+98;Cercle des Fromagers Cannetans;6 Rue de la Croisette;Régional;Lyon;Auvergne-Rhône-Alpes
+99;Brigade des Fondus Mentonnais;4 Rue des Citronniers;Local;Toulouse;Occitanie
+100;Temple des Grands Maîtres Tenracs;1 Place de la République;National;Paris;Île-de-France
